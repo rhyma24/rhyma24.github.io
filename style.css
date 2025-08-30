@@ -23,7 +23,7 @@
     .nav-links a{padding:10px 12px; border-radius:12px; font-weight:600}
     .nav-links a:focus-visible{outline:3px solid var(--blue-1)}
     .brand{display:flex; align-items:center; gap:10px}
-    .brand-badge{width:36px; height:36px; border-radius:14px; background:var(--green-2)}
+    .brand-badge{width:36px; height:36px; border-radius:14px;}
     .cta{display:none}
 
     /* Sections */
@@ -42,7 +42,7 @@
     .hero-title{font-size:clamp(36px,5vw,64px); line-height:1.05; margin:.2em 0 .4em}
     .hero-sub{font-size:clamp(16px,1.6vw,20px); opacity:.9; margin-bottom:18px}
     .hero-visual{height:380px; border-radius:var(--radius-xl); box-shadow:inset 0 0 0 1px var(--base-2)}
-    .hero-visual-inner{width:100%; height:100%; display:grid; place-items:center; border-radius:inherit; background:
+    .hero-visual-inner{width:100%; height:100%; display:block; place-items:center; border-radius:inherit; background:
       radial-gradient(1200px 400px at 80% 0%, rgba(175,228,237,.35), transparent),
       linear-gradient(135deg, var(--base-2), var(--base-3));}
 
