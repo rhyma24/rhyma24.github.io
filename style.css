@@ -94,7 +94,7 @@
     .fade.show{opacity:1; transform:translateY(0)}
 
     /* Responsive */
-    @media (min-width: 480px){
+    @media (min-width: 768px){
       .nav-links{display:flex}
       .cta{display:inline-flex}
       .hero-grid{grid-template-columns:1.1fr 1fr; align-items:center}
@@ -136,4 +136,12 @@
 .chip-card p {
   font-size:.9rem;
   opacity:.85;
+}
+@media (max-width: 480px) {
+  .foot {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+    padding: 20px;
+  }
 }
