@@ -23,7 +23,12 @@
     .nav-links a{padding:10px 12px; border-radius:12px; font-weight:600}
     .nav-links a:focus-visible{outline:3px solid var(--blue-1)}
     .brand{display:flex; align-items:center; gap:10px}
-    .brand-badge{width:36px; height:36px; border-radius:14px;}
+    .brand-badge {
+  height:36px;
+  width:auto;
+  border-radius:0;
+  display:block;
+}
     .cta{display:none}
 
     /* Sections */
@@ -50,7 +55,7 @@
     .grid-3{display:grid; gap:18px}
     .card{background:var(--base-1); border-radius:var(--radius-xl); padding:22px; box-shadow:var(--shadow-sm); transition:.2s box-shadow}
     .card:hover{box-shadow:var(--shadow)}
-    .thumb{height:140px; border:1px solid var(--blue-1); border-radius:16px; display:grid; place-items:center; margin-bottom:12px; font-size:12px; opacity:.7}
+    .thumb{height:140px; border:none; solid var(--blue-1); border-radius:16px; display:grid; place-items:center; margin-bottom:12px; font-size:12px; opacity:.7}
 
     /* Feature icons */
     .feature{border:1px solid var(--base-2); border-radius:var(--radius-xl); padding:22px}
@@ -99,3 +104,36 @@
       .contact{grid-template-columns:2fr 1fr}
       .row{grid-template-columns:repeat(2,1fr)}
     }
+    .chip {
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.chip:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.1);
+}
+/* Gemensam chip-stil för alla sektioner */
+.chip-card {
+  border:1px solid var(--base-3);
+  background:var(--base-1);
+  border-radius:18px;
+  padding:24px;
+  box-shadow:var(--shadow-sm);
+  transition: transform .2s ease, box-shadow .2s ease;
+  text-align:center;
+}
+.chip-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+.chip-card img {
+  max-width:80px;
+  margin-bottom:12px;
+}
+.chip-card h3 {
+  margin:0 0 8px;
+  font-size:1.1rem;
+}
+.chip-card p {
+  font-size:.9rem;
+  opacity:.85;
+}
