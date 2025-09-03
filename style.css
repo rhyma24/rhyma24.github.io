@@ -1055,6 +1055,450 @@ footer {
 .hero-edge .hero-edge-panel {
   width: 97%;
 }
+/* --- HERO: stoppa att loggan kapas på mobil --- */
+@media (max-width: 640px){
+  /* Se till att kortet får extra topp-luft och rundningen inte äter loggan */
+  .hero-edge .hero-edge-panel{
+    padding-top: clamp(80px, 10vw + env(safe-area-inset-top), 72px);
+    overflow: hidden; /* respektera rundade hörn */
+  }
+
+  /* Om du har en hero-visual med fast höjd – släpp den på mobil */
+  .hero-visual{
+    height: auto;
+  }
+
+  /* Skala ner loggan lite, centrera och låt den innehållas i kortet */
+  .hero-media img,
+  .hero-visual img{
+    display: block;
+    width: min(88vw, 560px);
+    height: auto;
+    max-height: 48vh;       /* så den inte dominerar hela skärmen */
+    object-fit: contain;
+    margin: 0 auto;         /* centrera */
+    transform: translateY(4px); /* lite extra luft uppifrån */
+  }
+
+  /* (Valfritt) ge hela hero-sektionen lite luft från headern */
+  #hero{ margin-top: 6px; }
+}
+/* --- Hero: minska tomrum överst på mobil --- */
+@media (max-width: 640px){
+  /* 1) Minska sektionens topp-padding */
+  #hero,
+  .hero-edge{ padding-top: 4px; }            /* var ev. 56px/22px tidigare */
+
+  /* 2) Behåll säker luft åt loggan inne i kortet (från tidigare fix) */
+  .hero-edge .hero-edge-panel{
+    padding-top: calc(32px + env(safe-area-inset-top)); /* kan trimmas ned lite */
+  }
+
+  /* 3) (valfritt) Dra upp hela kortet någon pixel extra */
+  /* Aktivera om du fortfarande ser glapp: */
+  /* .hero-edge { margin-top: -6px; } */
+}
+/* ===== Mobilnav: horisontell pill-bar (utan JS) ===== */
+@media (max-width: 767px){
+  /* visa nav-länkar även på mobil (överskriv din display:none) */
+  header .nav-links{
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 8px 0;
+    scrollbar-width: none;      /* Firefox */
+    mask-image: linear-gradient(to right, transparent, black 12px, black calc(100% - 12px), transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 12px, black calc(100% - 12px), transparent);
+  }
+  header .nav-links::-webkit-scrollbar{ display: none; } /* Chrome/Safari */
+
+  header .nav-links a{
+    white-space: nowrap;
+    padding: 10px 14px;
+    border-radius: 9999px;
+    font-weight: 700;
+    border: 1px solid var(--base-2);
+    background: #fff;
+    box-shadow: var(--shadow-sm);
+    transition: transform .15s ease, background .2s ease, color .2s ease;
+  }
+  header .nav-links a:hover{ transform: translateY(-1px); }
+  header .nav-links a.is-active{
+    color: var(--text-light);
+    background: linear-gradient(90deg, var(--green-2), var(--green-3));
+    border-color: transparent;
+  }
+
+  /* göm stora CTA-knappen i header på mobil om du vill frigöra plats */
+  header .cta{ display: none !important; }
+
+  /* behåll samma höjd på headern och centrera innehållet lite bättre */
+  header .nav{
+    height: 64px;
+    gap: 8px;
+  }
+}
+/* ===== Sticky header förbättring ===== */
+header {
+  backdrop-filter: saturate(180%) blur(12px);  /* glassy känsla */
+  background: rgba(255,255,255,0.72);          /* semi-transparent bakgrund */
+  transition: box-shadow .25s ease, background .25s ease;
+}
+
+/* Lägg till skugga när man scrollar ned */
+header.scrolled {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  background: rgba(255,255,255,0.9); /* lite mer solid så texten alltid syns */
+}
+/* Se till att header-text alltid är mörk vid scroll */
+header, 
+header a, 
+header strong {
+  color: var(--text-dark);
+  transition: color .25s ease;
+}
+
+header.scrolled,
+header.scrolled a,
+header.scrolled strong {
+  color: var(--text-dark); /* behåll mörk text även när bakgrunden ändras */
+}
+/* ===== Fix: tvinga mörk text i header vid scroll ===== */
+header.scrolled .brand strong,
+header.scrolled .brand,
+header.scrolled .nav-links a,
+header.scrolled .cta {
+  color: var(--text-dark) !important;
+  fill: var(--text-dark) !important;
+}
+/* ===== Kontakt: kopiera-knappar med PureVia-gradient ===== */
+.contact .copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  color: var(--text-light);
+  background: linear-gradient(135deg, var(--green-2), var(--green-3));
+  box-shadow: 0 4px 12px rgba(122,187,110,0.25);
+  transition: transform .15s ease, box-shadow .2s ease;
+}
+
+.contact .copy-btn:hover,
+.contact .copy-btn:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(122,187,110,0.35);
+  outline: none;
+}
+
+.contact .copy-btn:active {
+  transform: scale(0.96);
+  box-shadow: 0 2px 6px rgba(122,187,110,0.4);
+}
+/* ===== Kontakt: gradient-knappar för "Kopiera" ===== */
+.contact .copy-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 14px;
+  margin-left:10px;                 /* lite avstånd från länken */
+  border:0;
+  border-radius:12px;
+  font:inherit;
+  font-weight:700;
+  color:var(--text-light);
+  background:linear-gradient(135deg, var(--green-2), var(--green-3));
+  box-shadow:0 4px 12px rgba(122,187,110,.25);
+  cursor:pointer;
+  transition:transform .15s ease, box-shadow .2s ease, opacity .2s ease;
+}
+.contact .copy-btn:hover,
+.contact .copy-btn:focus{
+  transform:translateY(-2px);
+  box-shadow:0 8px 22px rgba(122,187,110,.35);
+  outline:none;
+}
+.contact .copy-btn:active{ transform:scale(.97); }
+
+/* Visuell feedback när kopieringen lyckats */
+.contact .copy-btn.copied{
+  background:linear-gradient(135deg, #5bbf6f, #46a85e);
+  box-shadow:0 6px 16px rgba(70,168,94,.35);
+}
+.contact .copy-btn.copied::after{
+  content:"✓";
+  font-weight:800;
+}
+
+/* Liten justering på väldigt små skärmar */
+@media (max-width:480px){
+  .contact .copy-btn{
+    padding:9px 12px;
+    border-radius:10px;
+    margin-left:8px;
+  }
+}
+/* ===== Kontakt: gradient-knappar för "Kopiera" (scopad till #kontakt) ===== */
+#kontakt .copy-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 14px;
+  margin-left:10px;
+  border:0;
+  border-radius:12px;
+  font:inherit;
+  font-weight:700;
+  color:var(--text-light) !important;
+  background:linear-gradient(135deg, var(--green-2), var(--green-3)) !important;
+  box-shadow:0 4px 12px rgba(122,187,110,.25);
+  cursor:pointer;
+  transition:transform .15s ease, box-shadow .2s ease, opacity .2s ease;
+  appearance:none;
+}
+#kontakt .copy-btn:hover,
+#kontakt .copy-btn:focus{
+  transform:translateY(-2px);
+  box-shadow:0 8px 22px rgba(122,187,110,.35);
+  outline:none;
+}
+#kontakt .copy-btn:active{ transform:scale(.97); }
+
+#kontakt .copy-btn.copied{
+  background:linear-gradient(135deg, #5bbf6f, #46a85e) !important;
+  box-shadow:0 6px 16px rgba(70,168,94,.35);
+}
+#kontakt .copy-btn.copied::after{
+  content:" ✓";
+  font-weight:800;
+}
+
+@media (max-width:480px){
+  #kontakt .copy-btn{
+    padding:9px 12px;
+    border-radius:10px;
+    margin-left:8px;
+  }
+}
+/* ===== Kontakt: mjukare gradient-knappar för "Kopiera" ===== */
+#kontakt .copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  margin-left: 10px;
+  border: 0;
+  border-radius: 12px;
+  font: inherit;
+  font-weight: 600;
+  color: var(--text-light) !important;
+  background: linear-gradient(135deg, #9edbaf, #7abb6e) !important; /* mjukare grön */
+  box-shadow: 0 4px 10px rgba(122, 187, 110, 0.18);
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .3s ease, opacity .3s ease;
+  appearance: none;
+}
+
+#kontakt .copy-btn:hover,
+#kontakt .copy-btn:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(122, 187, 110, 0.25);
+  outline: none;
+}
+
+#kontakt .copy-btn:active {
+  transform: scale(.98);
+}
+
+#kontakt .copy-btn.copied {
+  background: linear-gradient(135deg, #95ca6f, #6fa85b) !important;
+  box-shadow: 0 6px 16px rgba(111, 168, 91, 0.25);
+}
+
+#kontakt .copy-btn.copied::after {
+  content: " ✓";
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+@media (max-width: 480px) {
+  #kontakt .copy-btn {
+    padding: 9px 12px;
+    border-radius: 10px;
+    margin-left: 8px;
+    font-size: 0.9rem;
+  }
+}
+/* ===== Scroll-fades / premium reveals ===== */
+.fade-in,
+.fade-up,
+.fade-down,
+.fade-left,
+.fade-right,
+.fade-zoom {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition-property: opacity, transform, filter;
+  transition-duration: .7s;
+  transition-timing-function: cubic-bezier(.22,.61,.36,1);
+  filter: blur(6px);
+}
+
+.fade-in.show     { opacity: 1; filter: blur(0); transform: none; }
+.fade-up          { transform: translateY(16px); }
+.fade-up.show     { transform: translateY(0);    filter: blur(0); }
+
+.fade-down        { transform: translateY(-16px); }
+.fade-down.show   { transform: translateY(0);      filter: blur(0); }
+
+.fade-left        { transform: translateX(-18px); }
+.fade-left.show   { transform: translateX(0);       filter: blur(0); }
+
+.fade-right       { transform: translateX(18px); }
+.fade-right.show  { transform: translateX(0);       filter: blur(0); }
+
+.fade-zoom        { transform: scale(.98); }
+.fade-zoom.show   { transform: scale(1);            filter: blur(0); }
+
+/* Stagger – ge små delays för barn i en container */
+.stagger > * { transition-delay: 0s; }
+.stagger > *:nth-child(1) { transition-delay: .05s; }
+.stagger > *:nth-child(2) { transition-delay: .10s; }
+.stagger > *:nth-child(3) { transition-delay: .15s; }
+.stagger > *:nth-child(4) { transition-delay: .20s; }
+.stagger > *:nth-child(5) { transition-delay: .25s; }
+.stagger > *:nth-child(6) { transition-delay: .30s; }
+
+/* Reduced motion – visa allt direkt utan animation */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in,.fade-up,.fade-down,.fade-left,.fade-right,.fade-zoom,
+  .fade-in.show,.fade-up.show,.fade-down.show,.fade-left.show,.fade-right.show,.fade-zoom.show {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+/* ===== Tighta upp avstånden kring hero ===== */
+
+/* 1) Minimera gap mellan navbar (sticky header) och hero */
+header + #hero,
+header + .hero-edge{
+  margin-top: 0;                 /* ingen extra toppmarginal */
+}
+#hero, .hero-edge{
+  padding-top: clamp(6px, 1.2vh, 14px);   /* lite luft men tight */
+}
+
+/* 2) Minska utrymmet UNDER hero, innan nästa sektion (Produkter) */
+#hero, .hero-edge{
+  padding-bottom: clamp(10px, 1.6vh, 18px);
+}
+/* Oavsett vad som kommer efter hero: dra ner topp-paddingen där */
+#hero + section,
+.hero-edge + section{
+  padding-top: clamp(20px, 3vh, 36px) !important;  /* var 72px globalt */
+}
+
+/* 3) Se till att inget internt i hero trycker utåt med extra marginaler */
+.hero-edge .hero-edge-panel,
+.hero-edge .hero-content,
+.hero-edge .hero-bar{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* 4) Mobil-tuning: ännu tajtare */
+@media (max-width: 640px){
+  #hero, .hero-edge{ padding-top: 4px; padding-bottom: 10px; }
+  #hero + section, .hero-edge + section{ padding-top: 18px !important; }
+}
+/* ===== Mobilfix för hero ===== */
+@media (max-width: 640px){
+  /* 1) Sänk loggan i hero */
+  /* Gäller om du har <img> i .hero-media */
+  .hero-media img{
+    object-position: 50% 60%; /* 60% = lite lägre. Testa 65–70% om du vill ännu lägre */
+  }
+  /* Om du istället använder background-image: */
+  .hero-media{
+    background-position: 50% 60%;
+  }
+
+  /* 2) Gör “glas”-kortet tydligt men utan att tvätta ur innehåll */
+  .hero-content{
+    /* Se till att själva kortet inte sätter opacity på allt innanför */
+    opacity: 1 !important;
+    background: rgba(255,255,255,0.66);             /* mjuk vit glas */
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    /* Hjälper Safari att rendera lager separat så barnens färger inte “blandas” */
+    isolation: isolate;
+  }
+
+  /* 3) Gör knappen helt solid och stäng av iOS default-appearance */
+  #hero .btn.btn-primary{
+    -webkit-appearance: none;
+    appearance: none;
+    opacity: 1 !important;                          /* säkerställ ingen nedtoning */
+    background: linear-gradient(135deg, #95d6a6, #6fbd7a) !important; /* lite starkare/mjuk grön */
+    box-shadow: 0 8px 20px rgba(111,189,122,.28);    /* lagom glow */
+    filter: none !important;
+  }
+
+  /* Liten förbättring på tryck/hover för mobil */
+  #hero .btn.btn-primary:active{
+    transform: scale(.98);
+  }
+}
+/* ===== Mobile hero tuning + iOS-knapp ===== */
+@media (max-width: 640px){
+
+  /* 1) Flytta ner loggan i hero oavsett markup-variant */
+  /* Vanlig variant vi använt: .hero-edge .hero-media img */
+  .hero-edge .hero-media img,
+  .hero-media img,
+  .hero-visual-inner img {                  /* fallback om du har den klassen kvar */
+    object-position: 50% 68% !important;    /* lägre (öka till 72% om du vill ner mer) */
+    transform: translateY(6%) !important;   /* liten extra knuff neråt */
+  }
+
+  /* Om loggan ligger som background-image istället för <img> */
+  .hero-edge .hero-media,
+  .hero-media {
+    background-position: 50% 68% !important;
+  }
+
+  /* 2) Glas-kortet ska inte tvätta ur innehåll */
+  .hero-content {
+    opacity: 1 !important;                        /* ingen global nedtoning */
+    background: rgba(255,255,255,0.68);           /* mjuk "glas" utan att bleka barn */
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    isolation: isolate;                            /* renare layering i Safari */
+  }
+
+  /* 3) Gör CTA-knappen lika pigg som på desktop på iOS */
+  .hero-content .btn.btn-primary,
+  #hero .btn.btn-primary {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+    background: linear-gradient(135deg, #8fd39c, #65bb79) !important; /* lite djupare grön */
+    box-shadow: 0 10px 24px rgba(101,187,121,.28) !important;
+  }
+
+  .hero-content .btn.btn-primary:active,
+  #hero .btn.btn-primary:active {
+    transform: scale(.98);
+  }
+}
 
 
 
