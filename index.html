@@ -398,7 +398,61 @@ window.addEventListener("scroll", ()=> {
     const m = window.matchMedia('(prefers-reduced-motion: reduce)');
     if(m.matches && img){ img.style.setProperty('--pary', '0px'); }
   })();
+  // === Header shadow on scroll ===
+window.addEventListener("scroll", ()=>{
+  const header = document.querySelector("header");
+  if(window.scrollY > 10) header.classList.add("scrolled");
+  else header.classList.remove("scrolled");
+});
+// ===== Kopiera-knappar i kontaktsektionen =====
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', async () => {
+    const text = btn.getAttribute('data-copy')?.trim() || '';
+    if(!text) return;
+
+    try {
+      await navigator.clipboard.writeText(text);
+      // Visuell feedback
+      const original = btn.textContent;
+      btn.textContent = 'Kopierat!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.classList.remove('copied');
+      }, 1500);
+    } catch (e) {
+      // Fallback om clipboard inte tillåts
+      const ok = window.prompt('Kopiera manuellt:', text);
+      if (ok !== null) {
+        const original = btn.textContent;
+        btn.textContent = 'Kopierat!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = original;
+          btn.classList.remove('copied');
+        }, 1500);
+      }
+    }
+  });
+});
+// ===== IntersectionObserver för scroll-fades =====
+(() => {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return; // visa utan animationer
+
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(en => {
+      if (en.isIntersecting) {
+        en.target.classList.add('show');
+        obs.unobserve(en.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in, .fade-up, .fade-down, .fade-left, .fade-right, .fade-zoom')
+    .forEach(el => io.observe(el));
+})();
+
 </script>
 </body>
 </html>
-
