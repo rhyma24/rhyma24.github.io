@@ -3,456 +3,625 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PureVia Sweden – Luftreningssystem för industri, kontor och storkök</title>
-  <meta name="description" content="Stand-alone och integrerade system som kombinerar filtrering, jonisering och styrd oxidationsprocess." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="style.css"/>
-  <link rel="icon" type="image/x-icon" href="assets/logo_simple.png">
-  <!-- Schema.org för Google -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "PureVia Sweden",
-  "url": "https://rhyma24.github.io/",
-  "logo": "https://rhyma24.github.io/assets/logo_simple.png",
-  "contactPoint": [{
-    "@type": "ContactPoint",
-    "telephone": "+46-735-944-654",
-    "contactType": "sales",
-    "areaServed": "SE",
-    "availableLanguage": ["sv", "en"]
-  }]
-}
-</script>
+  <title>PureVia Sweden – Premium Luftrening</title>
+  <meta name="description" content="PureVia Sweden erbjuder exklusiva, effektiva luftreningssystem som kombinerar filtrering, jonisering och en styrd oxidationsprocess."
+    />
+  <!-- Preconnects for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+
+  <!-- Schema.org for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "PureVia Sweden",
+    "url": "https://rhyma24.github.io/",
+    "logo": "https://rhyma24.github.io/assets/logo.svg",
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+46-735-944-654",
+        "contactType": "customer support",
+        "availableLanguage": ["sv", "en"]
+      }
+    ]
+  }
+  </script>
+  <style>
+    /* Colour palette */
+    :root {
+      --green-light: #95ca6f;
+      --green-mid: #88c370;
+      --green-dark: #7abb6e;
+      --blue-light: #b7dadd;
+      --blue-mid: #afe4ed;
+      --bg-light: #f7fbe8;
+      --bg-mid: #eff8d7;
+      --bg-dark: #f1f9dc;
+      --black: #000000;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(180deg, var(--bg-light), var(--bg-dark));
+      color: var(--black);
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(8px);
+      background: rgba(247, 251, 232, 0.8);
+      transition: background 0.3s;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+    }
+
+    nav .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1.2rem;
+      text-decoration: none;
+      color: var(--black);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    nav a {
+      position: relative;
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--black);
+      padding: 0.25rem 0;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--green-light), var(--blue-mid));
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+
+    nav a:hover::after,
+    nav a:focus::after,
+    nav a.active::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    /* Hamburger for mobile */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--black);
+      transition: all 0.3s;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      padding: 6rem 1.5rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, var(--green-light), var(--blue-mid));
+      padding: 4rem 2rem;
+      border-radius: 2rem;
+      max-width: 1100px;
+      width: 100%;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      position: relative;
+      overflow: hidden;
+      color: var(--black);
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      inset: -50%;
+      background: conic-gradient(from 180deg, var(--blue-mid), var(--green-dark), var(--green-light));
+      filter: blur(120px);
+      z-index: -1;
+      animation: rotate 15s linear infinite;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .hero-logo {
+      max-width: 180px;
+      width: 100%;
+      object-fit: contain;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.15));
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      max-width: 600px;
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    .hero .cta {
+      margin-top: 2rem;
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--green-light), var(--blue-mid));
+      color: var(--black);
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .hero .cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Section utilities */
+    section {
+      padding: 4rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    /* Product cards */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: var(--bg-light);
+      border-radius: 1rem;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .product-card .content {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .product-card p {
+      flex: 1;
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    .product-card .price {
+      margin-top: 1rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    /* Technology section */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .tech-item {
+      background: var(--bg-light);
+      padding: 2rem 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .tech-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .tech-item svg {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1rem;
+      fill: var(--green-dark);
+    }
+
+    .tech-item h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .tech-item p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    /* Chips */
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .chip {
+      padding: 0.75rem 1.25rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--green-light), var(--blue-mid));
+      color: var(--black);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: transform 0.3s;
+    }
+
+    .chip:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Contact card */
+    .contact-card {
+      background: radial-gradient(circle at top right, var(--blue-mid), var(--green-light));
+      padding: 3rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      color: var(--black);
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      inset: -50%;
+      background: conic-gradient(from 0deg, var(--green-light), var(--blue-mid), var(--green-dark));
+      filter: blur(120px);
+      z-index: -1;
+      animation: rotate 20s linear infinite;
+    }
+
+    .contact-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .contact-info a {
+      color: var(--black);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-mid);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    /* Responsive navigation */
+    @media (max-width: 768px) {
+      nav ul {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: rgba(247, 251, 232, 0.95);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 4rem 2rem;
+        gap: 1.5rem;
+        transition: right 0.3s ease;
+      }
+
+      nav ul.open {
+        right: 0;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Header / Nav -->
   <header>
-    <div class="container nav">
-      <div class="brand">
-        <img class="brand-badge" aria-hidden="true" src="assets/logo_simple.png">
-        <strong>PureVia Sweden</strong>
+    <nav>
+      <a href="#" class="logo">
+        <img src="assets/logo.svg" alt="PureVia Logo" style="width: 32px; height: 32px;" />
+        PureVia
+      </a>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
-      <nav class="nav-links" aria-label="Primär navigation">
-        <a href="#produkter">Produkter</a>
-        <a href="#teknologi">Teknologi &amp; säkerhet</a>
-        <a href="#anvandning">Användningsområden</a>
-        <a href="#om">Om oss</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
-      <button class="btn btn-primary cta" data-scroll="#kontakt" aria-label="Boka genomgång">Boka genomgång
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-    </div>
+      <ul id="nav-links">
+        <li><a href="#produkter">Produkter</a></li>
+        <li><a href="#teknologi">Teknologi &amp; Säkerhet</a></li>
+        <li><a href="#varfor">Varför PureVia</a></li>
+        <li><a href="#anvandning">Användningsområden</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
   </header>
 
-<!-- Hero -->
-<section id="hero" class="hero-edge">
-  <div class="hero-edge-panel">
-    <div class="hero-media">
-      <img src="assets/logo_dark.png" alt="PureVia Sweden">
-    </div>
-
-    <!-- Text i SAMMA kort, i nederkant -->
-    <div class="hero-content">
-      <div class="hero-bar">
-        <p class="kicker">Oxidationsdriven luftrening som verkligen bryter ned – inte bara fångar upp.</p>
-        <h1 class="hero-title">Luftrening som eliminerar – inte döljer.</h1>
-        <p class="hero-sub">Oxidationsdriven luftrening som verkligen tar bort problemen – inte bara döljer dem.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#kontakt">
-            Få en offert
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-  <!-- Produkter -->
-  <section id="produkter" style="background:var(--base-2)">
-    <div class="container">
-      <h2 class="section-title fade">Produkter</h2>
-      <div class="grid-3">
-        <article class="card fade">
-          <img src="assets/standalone.png" class="thumb">
-          <h3>LH‑UL Stand‑Alone</h3>
-          <p class="muted">Fristående enheter som inte bara renar luften – utan eliminerar lukt, fett och mikrober.</p>
-          <p><a href="#kontakt" class="muted" style="font-weight:700">Läs mer &amp; offert →</a></p>
-        </article>
-        <article class="card fade">
-          <img src="assets/compact1020.png" class="thumb">
-          <h3>Compact 10/20</h3>
-          <p class="muted">Väggmonterad lösning som bryter ner fett, lukt och biofilm i storkök och ventilation.</p>
-          <p><a href="#kontakt" class="muted" style="font-weight:700">Läs mer &amp; offert →</a></p>
-        </article>
-        <article class="card fade">
-          <img src="assets/modular.png" class="thumb">
-          <h3>Modulära system (ABB/MAG/LKL)</h3>
-          <p class="muted">Flexibla moduler för integration i ventilation och industri. Sensorstyrd drift för säker och effektiv luftrening.</p>
-          <p><a href="#kontakt" class="muted" style="font-weight:700">Läs mer &amp; offert →</a></p>
-        </article>
+  <section class="hero" id="home">
+    <div class="hero-card">
+      <div class="hero-content">
+        <img src="assets/purevia-hero-logo.svg" alt="PureVia Logo" class="hero-logo" />
+        <h1>Förvandla luften du andas</h1>
+        <p>PureVia Sweden erbjuder luftreningslösningar som kombinerar filtrering, jonisering och styrd oxidation för renaste möjliga luft.</p>
+        <a href="#produkter" class="cta">Läs mer</a>
       </div>
     </div>
   </section>
 
-  <!-- Teknologi & säkerhet -->
+  <section id="produkter">
+    <h2>Våra produkter</h2>
+    <div class="products">
+      <div class="product-card">
+        <img src="assets/standalone.jpg" alt="Stand-alone enhet" />
+        <div class="content">
+          <h3>Stand-alone</h3>
+          <p>En fristående luftreningsenhet för mindre rum och kontor, med tyst drift och hög effektivitet.</p>
+          <span class="price">Kontakta oss</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="assets/compact.jpg" alt="Kompakt enhet" />
+        <div class="content">
+          <h3>Compact</h3>
+          <p>Perfekt för hemmet: kompakt design, lågt energibehov och kraftfull rening.</p>
+          <span class="price">Kontakta oss</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="assets/modular.jpg" alt="Modulärt system" />
+        <div class="content">
+          <h3>Modular</h3>
+          <p>Skalbart system för större utrymmen och industriella tillämpningar med avancerad teknik.</p>
+          <span class="price">Kontakta oss</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="teknologi">
-    <div class="container">
-      <h2 class="section-title fade">Teknologi &amp; säkerhet</h2>
-      <div class="features" style="display:grid; gap:18px">
-        <div class="feature fade">
-          <div style="display:flex; align-items:center; gap:10px">
-            <!-- Gauge icon -->
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12a9 9 0 10-18 0 9 9 0 0018 0zm-9 0l5-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <h3>Styrd oxidation</h3>
-          </div>
-          <p class="muted">Reaktivt syre bryter ned lukt, fett och mikrober, rest blir O₂.</p>
-        </div>
-        <div class="feature fade">
-          <div style="display:flex; align-items:center; gap:10px">
-            <!-- Shield icon -->
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 9-8 9s-8-4-8-9V7l8-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-            <h3>Säker drift</h3>
-          </div>
-          <p class="muted">Vi prioriterar säkerheten – våra system övervakar nivåer och anpassar sig automatiskt för säker drift.</p>
-        </div>
-        <div class="feature fade">
-          <div style="display:flex; align-items:center; gap:10px">
-            <!-- Settings icon -->
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z" stroke="currentColor" stroke-width="2"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06A1.65 1.65 0 0015 19.4a1.65 1.65 0 00-1 .6 1.65 1.65 0 00-.33 1.82 2 2 0 01-3.34 0 1.65 1.65 0 00-.33-1.82 1.65 1.65 0 00-1-.6 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.6 15a1.65 1.65 0 00-.6-1 1.65 1.65 0 00-1.82-.33 2 2 0 010-3.34 1.65 1.65 0 001.82-.33 1.65 1.65 0 00.6-1A1.65 1.65 0 004.6 8a1.65 1.65 0 00-.33-1.82l-.06-.06A2 2 0 017.04 3.3l.06.06A1.65 1.65 0 009 4.6c.36 0 .71-.13 1-.36.29-.23.49-.56.6-.92a2 2 0 013.34 0c.1.36.31.69.6.92.29.23.64.36 1 .36.63 0 1.23-.25 1.68-.7l.06-.06a2 2 0 012.83 2.83l-.06.06c-.45.45-.7 1.05-.7 1.68 0 .36.13.71.36 1 .23.29.56.49.92.6.36.1.69.31.92.6.23.29.36.64.36 1z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <h3>Smart styrning</h3>
-          </div>
-          <p class="muted">Stöd för sensorer, automatisk avstängning vid stillastående luft.</p>
-        </div>
-        <div class="feature fade">
-          <div style="display:flex; align-items:center; gap:10px">
-            <!-- Book/Check icon -->
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4h12a2 2 0 012 2v14l-3-2-3 2-3-2-3 2V6a2 2 0 012-2z" stroke="currentColor" stroke-width="2"/><path d="M9 10l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <h3>Certifierad och testad</h3>
-          </div>
-          <p class="muted">CE-märkta produkter med dokumenterad effekt.</p>
-        </div>
+    <h2>Teknologi &amp; säkerhet</h2>
+    <div class="tech-grid">
+      <div class="tech-item">
+        <!-- Ionization Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" /><path d="M12 6v12M6 12h12" stroke="currentColor" stroke-width="2" /></svg>
+        <h3>Jonisering</h3>
+        <p>Neutraliserar skadliga partiklar för friskare luft.</p>
+      </div>
+      <div class="tech-item">
+        <!-- Filtration Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="2" /><path d="M4 8h16M4 16h16" stroke="currentColor" stroke-width="2" /></svg>
+        <h3>Filtrering</h3>
+        <p>Avancerade filter som fångar upp ultrafina partiklar och allergener.</p>
+      </div>
+      <div class="tech-item">
+        <!-- Oxidation Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"><polygon points="12 2 15 8 22 9 17 14 18 21 12 18 6 21 7 14 2 9 9 8 12 2" stroke="currentColor" stroke-width="2" fill="none" /></svg>
+        <h3>Styrd oxidation</h3>
+        <p>Eliminerar VOC och luktmolekyler genom oxidering.</p>
       </div>
     </div>
   </section>
 
-<!-- Användningsområden -->
-<section id="anvandning" style="background:var(--base-2)">
-  <div class="container">
-    <h2 class="section-title fade">Användningsområden</h2>
-
-    <div class="use-grid">
-      <a class="use-card fade" href="#kontakt" aria-label="Industri & produktion – kontakta oss">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18v12a2 2 0 01-2 2H5a2 2 0 01-2-2V6z" stroke="currentColor" stroke-width="2"/><path d="M3 10h18" stroke="currentColor" stroke-width="2"/></svg>
-        <h3>Industri & produktion</h3>
-        <p>Eliminerar lukt och aerosoler i processmiljöer.</p>
-      </a>
-
-      <a class="use-card fade" href="#kontakt" aria-label="Skolor & kontor – kontakta oss">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7h18v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7z" stroke="currentColor" stroke-width="2"/><path d="M7 7V5a2 2 0 012-2h6a2 2 0 012 2v2" stroke="currentColor" stroke-width="2"/></svg>
-        <h3>Skolor & kontor</h3>
-        <p>Renare luft för bättre arbetsmiljö och fokus.</p>
-      </a>
-
-      <a class="use-card fade" href="#kontakt" aria-label="Restaurang & storkök – kontakta oss">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 3v10a3 3 0 106 0V3M18 3v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        <h3>Restaurang & storkök</h3>
-        <p>Bryter ner fett, lukt och biofilm i ventilation.</p>
-      </a>
-
-      <a class="use-card fade" href="#kontakt" aria-label="Lager & logistik – kontakta oss">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 9l9-6 9 6v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" stroke="currentColor" stroke-width="2"/><path d="M9 22V12h6v10" stroke="currentColor" stroke-width="2"/></svg>
-        <h3>Lager & logistik</h3>
-        <p>Minskar lukt och partiklar i stora volymer.</p>
-      </a>
-
-      <a class="use-card fade" href="#kontakt" aria-label="Garage & källare – kontakta oss">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 10l9-6 9 6v8a2 2 0 01-2 2H5a2 2 0 01-2-2v-8z" stroke="currentColor" stroke-width="2"/><path d="M7 20v-6h10v6" stroke="currentColor" stroke-width="2"/></svg>
-        <h3>Garage & källare</h3>
-        <p>Motverkar instängd lukt och fuktproblematik.</p>
-      </a>
-
-      <a class="use-card fade" href="#kontakt" aria-label="Gym & wellness – kontakta oss">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 8h12M4 12h16M6 16h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        <h3>Gym & wellness</h3>
-        <p>Fräschare luft vid hög belastning och aktivitet.</p>
-      </a>
+  <section id="varfor">
+    <h2>Varför PureVia?</h2>
+    <div class="chips">
+      <div class="chip">Skandinavisk design</div>
+      <div class="chip">Låg energiförbrukning</div>
+      <div class="chip">Certifierad av oberoende labb</div>
+      <div class="chip">Tyst drift</div>
+      <div class="chip">Miljövänliga material</div>
     </div>
-  </div>
-</section>
-
-  <!-- Varför PureVia -->
-  <section id="om">
-    <div class="container">
-      <h2 class="section-title fade">Varför PureVia</h2>
-      <div class="why-grid">
-  <div class="why-card fade">
-    <div class="why-icon">
-      <!-- check/badge -->
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6l-11 11L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
-    <h3>Bevisad effekt</h3>
-    <p>CE-märkt och testdata från verkliga miljöer. Dokumenterad nedbrytning – inte bara filtrering.</p>
-  </div>
-
-  <div class="why-card fade">
-    <div class="why-icon">
-      <!-- flex/gear -->
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/><path d="M19.4 15a2 2 0 010 4l-1.2.7a2 2 0 01-2.1-.2l-.6-.4a8 8 0 01-2 .8l-.2.7a2 2 0 01-2 1.4H10a2 2 0 01-2-1.4l-.2-.7a8 8 0 01-2-.8l-.6.4a2 2 0 01-2.1.2L1.9 19a2 2 0 010-4l.7-1.2a8 8 0 01-.3-2 8 8 0 01.3-2L1.9 8a2 2 0 010-4l1.2-.7a2 2 0 012.1.2l.6.4a8 8 0 012-.8l.2-.7A2 2 0 0110 1h1a2 2 0 012 1.4l.2.7a8 8 0 012 .8l.6-.4a2 2 0 012.1-.2L20.1 4a2 2 0 010 4l-.7 1.2c.2.7.3 1.3.3 2s-.1 1.3-.3 2l.7 1.8z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-    </div>
-    <h3>Flexibel lösning</h3>
-    <p>Stand-alone eller integrerat i ventilation. Sensorstyrning för rätt nivå i varje miljö.</p>
-  </div>
-
-  <div class="why-card fade">
-    <div class="why-icon">
-      <!-- handshake -->
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 8l-6 6a4 4 0 01-6 0l-2-2M3 12l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
-    <h3>Rätt partner</h3>
-    <p>Leverans och installation via certifierade installatörer – tryggt från offert till drift.</p>
-  </div>
-
-  <div class="why-card fade">
-    <div class="why-icon">
-      <!-- chart/arrow -->
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20V4M3 20h18M7 16l3-3 3 2 4-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
-    <h3>Ekonomi & drift</h3>
-    <p>Mindre fett och lukt i kanaler ger lägre rengöringsbehov, bättre arbetsmiljö och stabil drift.</p>
-  </div>
-</div>
   </section>
 
-  <!-- Kontakt -->
-<section id="kontakt" style="background:var(--base-2)">
-  <div class="container">
-    <h2 class="section-title fade">Kontakt</h2>
-
-    <!-- EN kolumn: bara direktkontakt-kortet -->
-    <div class="contact-single">
-      <aside class="contact-card fade" aria-label="Kontaktuppgifter">
-        <h3>Direktkontakt</h3>
-
-        <div class="contact-item">
-          <div class="contact-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92v2a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3.11 4.18 2 2 0 0 1 5.1 2h2a2 2 0 0 1 2 1.72c.12.9.3 1.77.54 2.6a2 2 0 0 1-.45 2L8 9a16 16 0 0 0 7 7l.68-1.19a2 2 0 0 1 2-.9c.83.24 1.7.42 2.6.54A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2"/></svg>
-          </div>
-          <div class="contact-text">
-            <div class="label">Telefon</div>
-            <a href="tel:+46735944654" class="value">073-594 46 54</a>
-          </div>
-          <button class="copy-btn" data-copy="+46735944654" aria-label="Kopiera telefonnummer">Kopiera</button>
-        </div>
-
-        <div class="contact-item">
-          <div class="contact-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="2"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2"/></svg>
-          </div>
-          <div class="contact-text">
-            <div class="label">E-post</div>
-            <a href="mailto:pureviasweden@outlook.com" class="value">pureviasweden@outlook.com</a>
-          </div>
-          <button class="copy-btn" data-copy="pureviasweden@outlook.com" aria-label="Kopiera e-post">Kopiera</button>
-        </div>
-
-        <div class="contact-item">
-          <div class="contact-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-5.33-7-11a7 7 0 1 1 14 0c0 5.67-7 11-7 11z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/></svg>
-          </div>
-          <div class="contact-text">
-            <div class="label">Plats</div>
-            <div class="value">Helsingborg</div>
-          </div>
-        </div>
-      </aside>
+  <section id="anvandning">
+    <h2>Användningsområden</h2>
+    <div class="chips">
+      <div class="chip">Hem &amp; boende</div>
+      <div class="chip">Kontor</div>
+      <div class="chip">Skolor &amp; förskolor</div>
+      <div class="chip">Sjukhus &amp; vård</div>
+      <div class="chip">Industri</div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <section id="kontakt">
+    <h2>Kontakt</h2>
+    <div class="contact-card">
+      <h3>Kom i kontakt med oss</h3>
+      <p>Vi hjälper dig gärna att hitta rätt luftreningslösning.</p>
+      <div class="contact-info">
+        <a href="tel:+46735944654">Ring: +46 73 59 44 654</a>
+        <a href="mailto:info@purevia.se">E-post: info@purevia.se</a>
+        <span>Org.nr: 123456-7890</span>
+      </div>
+    </div>
+  </section>
 
-  <!-- Footer -->
   <footer>
-  <div class="container foot">
-    <div>
-      <strong>PureVia Sweden</strong><br />
-      <span>org.nr 990924-7976 · Helsingborg</span>
-    </div>
-  </div>
-</footer>
-
+    &copy; <span id="year"></span> PureVia Sweden AB &nbsp;|&nbsp; Org.nr: 123456-7890
+  </footer>
 
   <script>
-    // Smooth scroll for buttons that have data-scroll
-    document.addEventListener('click', (e)=>{
-      const target = e.target.closest('[data-scroll]');
-      if(!target) return;
-      const sel = target.getAttribute('data-scroll');
-      const el = document.querySelector(sel);
-      if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open');
     });
 
-    // IntersectionObserver for fade-in
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('show'); io.unobserve(en.target);} });
-    },{threshold:.12});
-    document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+    // Active link highlighting on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navItems = document.querySelectorAll('nav ul li a');
 
-    // Basic mock submit (replace with Formspree/Netlify later)
-    const form = document.querySelector('form');
-    form?.addEventListener('submit', ()=>{
-      alert('Tack! Ditt meddelande har skickats (demo).');
+    function activateLink() {
+      let scrollY = window.pageYOffset;
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+          navItems.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(sectionId)) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }
+    window.addEventListener('scroll', activateLink);
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.product-card, .tech-item, .chip, .contact-card');
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    reveals.forEach(el => {
+      el.style.opacity = 0;
+      el.style.transform = 'translateY(20px)';
+      observer.observe(el);
     });
+
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Respect prefers-reduced-motion
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mq.matches) {
+      document.querySelectorAll('*').forEach(el => {
+        el.style.transition = 'none';
+      });
+    }
   </script>
-    <!-- Scroll to top knapp -->
-  <button id="toTop" aria-label="Till toppen">↑</button>
-
-  <script>
-    // din befintliga JS här ...
-
-    // Scroll-to-top kod
-    const toTop = document.getElementById("toTop");
-    window.addEventListener("scroll", () => {
-      if(window.scrollY > 300){ toTop.classList.add("show"); }
-      else { toTop.classList.remove("show"); }
-    });
-    toTop.addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
-    // Markera aktiv sektion i menyn vid scroll
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll(".nav-links a");
-
-window.addEventListener("scroll", () => {
-  let current = "";
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 80; // lite offset för header
-    if (pageYOffset >= sectionTop) {
-      current = section.getAttribute("id");
-    }
-  });
-  navLinks.forEach(link => {
-    link.classList.remove("is-active");
-    if (link.getAttribute("href") === "#" + current) {
-      link.classList.add("is-active");
-    }
-  });
-});
-window.addEventListener("scroll", ()=> {
-  document.querySelector("header").classList.toggle("scrolled", window.scrollY>8);
-});
-  // Kopiera till urklipp + feedback
-  document.querySelectorAll('.copy-btn').forEach(btn=>{
-    btn.addEventListener('click', async ()=>{
-      const text = btn.getAttribute('data-copy');
-      try{
-        await navigator.clipboard.writeText(text);
-        const original = btn.textContent;
-        btn.textContent = 'Kopierat!';
-        btn.classList.add('copied');
-        setTimeout(()=>{ btn.textContent = original; btn.classList.remove('copied'); }, 1400);
-      }catch(e){
-        // Fallback: välj texten om clipboard inte tillåts
-        alert('Kunde inte kopiera, prova markera och kopiera manuellt: ' + text);
-      }
-    });
-  });
-
-  // ---- Premium hero: in-view + mikro-parallax ----
-  (function(){
-    const hero = document.querySelector('.hero-edge');
-    const img  = document.querySelector('.hero-edge .hero-media img');
-
-    // Fade-in när hero syns
-    if(hero){
-      const io = new IntersectionObserver(([e])=>{
-        if(e.isIntersecting){ hero.classList.add('is-inview'); io.unobserve(hero); }
-      }, { threshold: .35 });
-      io.observe(hero);
-    }
-
-    // Mikro-parallax på loggan (väldigt subtilt)
-    function onScroll(){
-      if(!img) return;
-      const panel = img.closest('.hero-edge-panel');
-      if(!panel) return;
-      const rect = panel.getBoundingClientRect();
-      const mid  = rect.top + rect.height/2;
-      // delta i px: hur långt panelens mitt ligger från viewportens mitt
-      const delta = (window.innerHeight/2 - mid) / 20; // små rörelser
-      img.style.setProperty('--pary', `${delta.toFixed(2)}px`);
-    }
-    window.addEventListener('scroll', onScroll, {passive:true});
-    onScroll();
-
-    // Om användaren föredrar reducerad rörelse
-    const m = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if(m.matches && img){ img.style.setProperty('--pary', '0px'); }
-  })();
-  // === Header shadow on scroll ===
-window.addEventListener("scroll", ()=>{
-  const header = document.querySelector("header");
-  if(window.scrollY > 10) header.classList.add("scrolled");
-  else header.classList.remove("scrolled");
-});
-// ===== Kopiera-knappar i kontaktsektionen =====
-document.querySelectorAll('.copy-btn').forEach(btn => {
-  btn.addEventListener('click', async () => {
-    const text = btn.getAttribute('data-copy')?.trim() || '';
-    if(!text) return;
-
-    try {
-      await navigator.clipboard.writeText(text);
-      // Visuell feedback
-      const original = btn.textContent;
-      btn.textContent = 'Kopierat!';
-      btn.classList.add('copied');
-      setTimeout(() => {
-        btn.textContent = original;
-        btn.classList.remove('copied');
-      }, 1500);
-    } catch (e) {
-      // Fallback om clipboard inte tillåts
-      const ok = window.prompt('Kopiera manuellt:', text);
-      if (ok !== null) {
-        const original = btn.textContent;
-        btn.textContent = 'Kopierat!';
-        btn.classList.add('copied');
-        setTimeout(() => {
-          btn.textContent = original;
-          btn.classList.remove('copied');
-        }, 1500);
-      }
-    }
-  });
-});
-// ===== IntersectionObserver för scroll-fades =====
-(() => {
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduced) return; // visa utan animationer
-
-  const io = new IntersectionObserver((entries, obs) => {
-    entries.forEach(en => {
-      if (en.isIntersecting) {
-        en.target.classList.add('show');
-        obs.unobserve(en.target);
-      }
-    });
-  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
-
-  document.querySelectorAll('.fade-in, .fade-up, .fade-down, .fade-left, .fade-right, .fade-zoom')
-    .forEach(el => io.observe(el));
-})();
-
-</script>
 </body>
 </html>
