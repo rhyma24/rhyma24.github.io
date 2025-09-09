@@ -1,1504 +1,794 @@
+/* =========================================================
+   STYLE.CSS — CLEANUP (KEEPING CURRENT LOOK)
+   ========================================================= */
+
+/* ===================== 0) DESIGN TOKENS ===================== */
 :root{
-      /* Palett */
-      --base-1:#f7fbe8; --base-2:#eff8d7; --base-3:#f1f9dc;
-      --green-1:#95ca6f; --green-2:#88c370; --green-3:#7abb6e;
-      --blue-1:#b7dadd; --blue-2:#afe4ed;
-      --text-dark:#000000; --text-light:#ffffff;
-      --radius-xl:24px; --radius-lg:18px; --radius-md:14px;
-      --shadow-sm:0 1px 2px rgba(0,0,0,.06);
-      --shadow:0 6px 18px rgba(0,0,0,.08);
-      --shadow-lg:0 12px 30px rgba(0,0,0,.12);
-      --maxw:1200px;
-    }
-    html{scroll-behavior:smooth}
-    body{margin:0; color:var(--text-dark); background:var(--base-1); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";}
-    h1,h2,h3{font-family:Poppins,Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
-    a{color:inherit; text-decoration:none}
-    .container{max-width:var(--maxw); margin-inline:auto; padding:0 18px}
+  --base-1:#f7fbe8; --base-2:#eff8d7; --base-3:#f1f9dc;
+  --green-1:#95ca6f; --green-2:#88c370; --green-3:#7abb6e;
+  --blue-1:#b7dadd; --blue-2:#afe4ed;
+  --text-dark:#000000; --text-light:#ffffff;
 
-    /* Header */
-    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(10px); background:rgba(255,255,255,.5); border-bottom:1px solid var(--base-2)}
-    .nav{display:flex; align-items:center; justify-content:space-between; height:64px}
-    .nav-links{display:none; gap:6px}
-    .nav-links a{padding:10px 12px; border-radius:12px; font-weight:600}
-    .nav-links a:focus-visible{outline:3px solid var(--blue-1)}
-    .brand{display:flex; align-items:center; gap:10px}
-    .brand-badge {
-  height:36px;
-  width:auto;
-  border-radius:0;
-  display:block;
+  --radius-xl:24px; --radius-lg:18px; --radius-md:14px;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.06);
+  --shadow:0 6px 18px rgba(0,0,0,.08);
+  --shadow-lg:0 12px 30px rgba(0,0,0,.12);
+
+  --maxw:1200px;
+  --header-h:88px;
 }
-    .cta{display:none}
 
-    /* Sections */
-    section{padding:72px 0}
-
-    /* Buttons */
-    .btn{display:inline-flex; align-items:center; gap:10px; padding:14px 18px; border-radius:16px; font-weight:700; cursor:pointer; border:0}
-    .btn-primary{background:var(--green-3); color:var(--text-light); box-shadow:var(--shadow-sm)}
-    .btn-primary:hover{transform:translateY(-1px)}
-    .btn-outline{background:transparent; border:2px solid var(--green-2); color:var(--text-dark)}
-
-    /* HERO */
-    #hero{background:var(--base-1)}
-    .hero-grid{display:grid; gap:28px}
-    .kicker{color:var(--green-3); letter-spacing:.04em; font-size:.9rem; font-weight:700}
-    .hero-title{font-size:clamp(36px,5vw,64px); line-height:1.05; margin:.2em 0 .4em}
-    .hero-sub{font-size:clamp(16px,1.6vw,20px); opacity:.9; margin-bottom:18px}
-    .hero-visual{height:380px; border-radius:var(--radius-xl); box-shadow:inset 0 0 0 1px var(--base-2)}
-    .hero-visual-inner{width:100%; height:100%; display:block; place-items:center; border-radius:inherit; background:
-      radial-gradient(1200px 400px at 80% 0%, rgba(175,228,237,.35), transparent),
-      linear-gradient(135deg, var(--base-2), var(--base-3));}
-
-    /* Cards */
-    .grid-3{display:grid; gap:18px}
-    .card{background:var(--base-1); border-radius:var(--radius-xl); padding:22px; box-shadow:var(--shadow-sm); transition:.2s box-shadow}
-    .card:hover{box-shadow:var(--shadow)}
-    .thumb{height:140px; border:none; solid var(--blue-1); border-radius:16px; display:grid; place-items:center; margin-bottom:12px; font-size:12px; opacity:.7}
-
-    /* Feature icons */
-    .feature{border:1px solid var(--base-2); border-radius:var(--radius-xl); padding:22px}
-    .feature h3{margin:8px 0 6px; font-size:1rem}
-
-    /* Chips */
-    .chips{display:grid; gap:12px}
-    .chip{border:1px solid var(--blue-1); background:var(--base-1); border-radius:18px; padding:22px; text-align:center; font-weight:600}
-    .chip .dot{width:42px; height:42px; border-radius:12px; background:var(--blue-2); margin:0 auto 8px}
-
-    /* Why */
-    .why .card{background:var(--base-2)}
-
-    /* Contact */
-    .contact{display:grid; gap:24px}
-    form{display:grid; gap:14px}
-    .row{display:grid; gap:14px}
-    label{font-size:.9rem; font-weight:600}
-    input, textarea, select{width:100%; padding:12px 14px; border:1.5px solid var(--blue-1); border-radius:14px; background:#fff; font:inherit}
-    textarea{min-height:120px; resize:vertical}
-    .aside{border:1px solid var(--base-3); background:var(--base-1); border-radius:var(--radius-xl); padding:22px}
-    .aside p{margin:8px 0}
-
-    /* Footer */
-    footer{border-top:1px solid var(--base-3); background:var(--base-1)}
-    .foot{display:flex; gap:24px; flex-wrap:wrap; align-items:center; justify-content:space-between; padding:28px 0}
-    .foot a{font-weight:600}
-
-    /* Utilities */
-    .section-title{font-size:clamp(26px,3.2vw,40px); margin:0 0 24px}
-    .muted{opacity:.8}
-    .stack{display:grid; gap:8px}
-
-    /* Animations */
-    .fade{opacity:0; transform:translateY(12px); transition:opacity .6s ease, transform .6s ease}
-    .fade.show{opacity:1; transform:translateY(0)}
-
-    /* Responsive */
-    @media (min-width: 768px){
-      .nav-links{display:flex}
-      .cta{display:inline-flex}
-      .hero-grid{grid-template-columns:1.1fr 1fr; align-items:center}
-      .grid-3{grid-template-columns:repeat(3,1fr)}
-      .features{grid-template-columns:repeat(4,1fr)}
-      .chips{grid-template-columns:repeat(3,1fr)}
-      .contact{grid-template-columns:2fr 1fr}
-      .row{grid-template-columns:repeat(2,1fr)}
-    }
-    .chip {
-  transition: transform .2s ease, box-shadow .2s ease;
+/* ===================== 1) BASE / RESET ===================== */
+html{ scroll-behavior:smooth; }
+body{
+  margin:0; color:var(--text-dark); background:var(--base-1);
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+  letter-spacing:.01em;
 }
-.chip:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0,0,0,.1);
-}
-/* Gemensam chip-stil för alla sektioner */
-.chip-card {
-  border:1px solid var(--base-3);
-  background:var(--base-1);
-  border-radius:18px;
-  padding:24px;
-  box-shadow:var(--shadow-sm);
-  transition: transform .2s ease, box-shadow .2s ease;
-  text-align:center;
-}
-.chip-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow);
-}
-.chip-card img {
-  max-width:80px;
-  margin-bottom:12px;
-}
-.chip-card h3 {
-  margin:0 0 8px;
-  font-size:1.1rem;
-}
-.chip-card p {
-  font-size:.9rem;
-  opacity:.85;
-}
-@media (max-width: 480px) {
-  .foot {
-    flex-direction: column;
-    text-align: center;
-    gap: 12px;
-    padding: 20px;
-  }
-}
-/* ====== 10k polish – lägg längst ner i style.css ====== */
+h1,h2,h3{ font-family:Poppins,Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial }
+a{ color:inherit; text-decoration:none }
+p{ margin:.6em 0 1.1em }
+.container{ max-width:var(--maxw); margin-inline:auto; padding:0 18px }
+section{ padding:72px 0 }
+.stack{ display:grid; gap:8px }
 
-/* Typografi & copy-rytm */
-body { letter-spacing: .01em; }
-.section-title { letter-spacing: -.01em; margin-bottom: 36px; }
-p { margin: .6em 0 1.1em; }
+/* ===================== 2) HEADER / NAV ===================== */
+header{
+  position:sticky; top:0; z-index:50;
+  backdrop-filter:saturate(180%) blur(12px);
+  background:rgba(255,255,255,0.72);
+  border-bottom:1px solid var(--base-2);
+  transition: box-shadow .25s ease, background .25s ease;
+}
+header.scrolled{ box-shadow:0 4px 16px rgba(0,0,0,0.08); background:rgba(255,255,255,0.9); }
+header, header a, header strong{ color:var(--text-dark); transition:color .25s ease; }
 
-/* Knappkänsla */
-.btn {
+.nav{ display:flex; align-items:center; justify-content:space-between; height:64px }
+.brand{ display:flex; align-items:center; gap:10px }
+.brand-badge{ height:36px; width:auto; display:block; }
+
+.nav-links{ display:none; gap:6px }
+.nav-links a{
+  position:relative; font-weight:600; padding:10px 14px; border-radius:12px; transition:color .2s ease;
+}
+.nav-links a::after{
+  content:""; position:absolute; left:14px; right:14px; bottom:6px; height:2px;
+  background:var(--green-3); border-radius:2px; transform:scaleX(0); transform-origin:left; transition:transform .25s ease; opacity:.9;
+}
+.nav-links a:hover::after, .nav-links a:focus::after, .nav-links a.is-active::after{ transform:scaleX(1); }
+.nav-links a:hover, .nav-links a:focus, .nav-links a.is-active{ color:var(--green-3); }
+.nav-links a, .nav-links a:hover, .nav-links a:focus, .nav-links a.is-active{ background:transparent !important; }
+
+.cta{ display:none }
+
+/* ===================== 3) BUTTONS ===================== */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  padding:14px 18px; border-radius:999px; font-weight:700; cursor:pointer; border:0;
   transition: transform .18s ease, box-shadow .25s ease, background .2s ease, color .2s ease;
 }
-.btn-primary { box-shadow: 0 6px 16px rgba(0,0,0,.12); }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,.16); }
-.btn-outline:hover { background: var(--green-2); color:#fff; }
+.btn-primary{
+  background:linear-gradient(180deg, var(--green-1), var(--green-3));
+  color:var(--text-light); box-shadow:0 6px 16px rgba(0,0,0,.12);
+}
+.btn-primary:hover{ transform:translateY(-2px); box-shadow:0 12px 28px rgba(0,0,0,.16); }
+.btn-ghost{
+  background:rgba(255,255,255,.9);
+  border:1px solid rgba(0,0,0,.06);
+  color:#0f2d1f;
+}
+.btn:active{ transform:scale(.97); box-shadow:0 4px 10px rgba(0,0,0,.12) inset; }
 
-/* Hero – mer premiumkänsla utan att byta markup */
-#hero { position: relative; isolation: isolate; }
-.hero-visual { box-shadow: inset 0 0 0 1px var(--base-2), 0 10px 30px rgba(0,0,0,.08); }
-.hero-title { font-weight: 800; }
-.kicker { opacity:.95; text-transform:none; }
+/* ===================== 4) HERO (SPLINE BACKGROUND + COPY) ===================== */
+/* Section shell */
+.pv-hero{
+  position:relative; isolation:isolate;
+  min-height: clamp(520px, 70vh, 760px);
+  overflow:hidden;
+  background: linear-gradient(180deg, var(--base-2), var(--base-3));
+  padding:0; /* paddning ligger i .pv-hero-inner */
+}
 
-/* Kort (produkter/varför) – djup & polish */
-.card {
-  border: 1px solid rgba(0,0,0,.04);
+/* Full-bleed Spline */
+.spline-bg{ position:absolute; inset:0; z-index:0; overflow:hidden; }
+.spline-bg iframe{
+  width:100%; height:100%; border:0; pointer-events:none;
+  filter: brightness(.9) contrast(1.05);
+}
+/* Ton för att matcha paletten (grön/blå) */
+.spline-bg::after{
+  content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background: linear-gradient(
+    180deg,
+    rgba(149,202,111,.55) 0%,
+    rgba(122,187,110,.45) 50%,
+    rgba(175,228,237,.35) 100%
+  );
+  mix-blend-mode: multiply;
+}
+
+/* Inner wrapper (maxbredd + spacing under headern) */
+.pv-hero-inner{
+  position:relative; z-index:2;
+  padding: calc(2rem + var(--header-h)) 2rem 64px;
+  max-width: var(--maxw); margin:0 auto;
+}
+
+/* Grid (du styr extra spacing med inline-style i HTML) */
+.pv-hero-grid{
+  display:grid; grid-template-columns: 1fr;
+  align-items:flex-start; justify-content:center;
+}
+
+/* Copy (centrerad) */
+.pv-hero-centered{
+  max-width:800px; margin:0 auto; text-align:center; position:relative; z-index:3;
+}
+.pv-hero-centered .hero-title{
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 800; line-height:1.1; margin-bottom:1rem; color:#0e1b14;
+}
+.pv-hero-centered .hero-title .muted{ color: rgba(0,0,0,.85); }
+.grad{
+  background: linear-gradient(90deg, var(--green-2), var(--green-3));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  -webkit-text-stroke:.3px rgba(0,0,0,.08);
+}
+.pv-hero-centered .lede{
+  font-size:1.15rem; color:#2a2a2a; opacity:.9; margin:0 auto 2rem; max-width:60ch;
+}
+.pv-hero-centered .pv-cta{ display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; }
+
+/* ===================== 5) PRODUKTER / CARDS ===================== */
+.grid-3{ display:grid; gap:18px }
+.card{
+  background:var(--base-1); border:1px solid rgba(0,0,0,.04);
+  border-radius:var(--radius-xl); padding:22px;
+  box-shadow:var(--shadow-sm);
   transition: transform .18s ease, box-shadow .25s ease, border-color .2s ease;
 }
-.card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(0,0,0,.08);
-  box-shadow: 0 14px 36px rgba(0,0,0,.12);
+.card:hover{ transform:translateY(-4px); border-color:rgba(0,0,0,.08); box-shadow:0 14px 36px rgba(0,0,0,.12); }
+.thumb{
+  width:100%; height:auto; object-fit:contain; background:#fff;
+  border-radius:16px; margin-bottom:14px; opacity:.9;
 }
 
-/* Produktbilder – ingen distorsion, ren yta */
-.thumb {
-  width:100%;
-  height:auto;
-  object-fit: contain;      /* viktig: stretcha inte */
-  background:#fff;
-  border:none solid var(--blue-1);
-  border-radius:16px;
-  margin-bottom:14px;
-  opacity:.9;
-}
-
-/* Teknologi & säkerhet – lyft utan att ändra HTML */
-.feature {
-  background: var(--base-1);
-  border:1px solid var(--base-3);
-  box-shadow: 0 4px 12px rgba(0,0,0,.06);
+/* ===================== 6) TEKNOLOGI & FEATURE-KORT ===================== */
+.features{ display:grid; gap:18px }
+.feature{
+  background:var(--base-1); border:1px solid var(--base-3); border-radius:var(--radius-xl);
+  padding:22px; box-shadow:0 4px 12px rgba(0,0,0,.06);
   transition: transform .18s ease, box-shadow .25s ease, border-color .2s ease;
 }
-.feature:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 34px rgba(0,0,0,.14);
-  border-color: rgba(0,0,0,.08);
-}
+.feature:hover{ transform:translateY(-4px); box-shadow:0 14px 34px rgba(0,0,0,.14); border-color:rgba(0,0,0,.08); }
+.feature h3{ margin:8px 0 6px; font-size:1rem }
+.feature svg{ transition: transform .2s ease, color .2s ease; }
+.feature:hover svg{ transform:scale(1.1); color:var(--green-3); }
 
-/* Chips – mer premium */
-.chip {
-  box-shadow: 0 6px 16px rgba(0,0,0,.08);
-  transition: transform .18s ease, box-shadow .25s ease;
-}
-.chip:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(0,0,0,.14); }
-
-/* Header logga – korrekta proportioner */
-.brand-badge { height:36px; width:auto; border-radius:0; display:block; }
-
-/* Footer – mobilvänlig och ren */
-.foot a:hover { text-decoration: underline; }
-@media (max-width: 480px){
-  .foot { flex-direction: column; text-align:center; gap:12px; padding: 20px; }
-}
-
-/* Aktiv meny-länk (om du la till JS för active state) */
-.nav-links a.is-active { background: rgba(0,0,0,.06); }
-
-/* Små justeringar för 768+ (behåll dina befintliga regler också) */
-@media (min-width: 768px){
-  .section-title { margin-bottom: 42px; }
-}
-img.thumb[src$="compact1020.png"]{ height: 340px;px; ... }
-
-#hero {
-  position: relative;
-  background: linear-gradient(135deg, var(--base-2), var(--base-3));
-  background-size: 200% 200%;
-  animation: gradientMove 12s ease infinite;
-}
-
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.btn:active {
-  transform: scale(0.97);
-  box-shadow: 0 4px 10px rgba(0,0,0,.12) inset;
-}
-
-.section-title {
-  position: relative;
-  display: inline-block;
-}
-
-.section-title::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 40%;
-  height: 3px;
-  background: var(--green-3);
-  border-radius: 2px;
-  opacity: .8;
-}
-
-footer {
-  border-top: none;
-  background: linear-gradient(135deg, var(--base-2), var(--base-3));
-  box-shadow: 0 -4px 12px rgba(0,0,0,.08);
-}
-
-.feature svg {
-  transition: transform .2s ease, color .2s ease;
-}
-.feature:hover svg {
-  transform: scale(1.1);
-  color: var(--green-3);
-}
-
-#toTop {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  padding: 12px 16px;
-  border-radius: 50%;
-  background: var(--green-3);
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,.15);
-  display: none;
-  transition: opacity .3s ease, transform .2s ease;
-}
-#toTop.show { display: block; }
-
-/* Navigation länkar */
-.nav-links a {
-  position: relative;
-  font-weight: 600;
-  padding: 10px 14px;
-  border-radius: 12px;
-  transition: color .2s ease;
-}
-
-/* Subtil underline animation */
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  left: 14px;
-  right: 14px;
-  bottom: 6px;
-  height: 2px;
-  background: var(--green-3);
-  border-radius: 2px;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform .25s ease;
-  opacity: .9;
-}
-
-.nav-links a:hover::after,
-.nav-links a:focus::after {
-  transform: scaleX(1);
-}
-
-/* Färgskiftning på hover */
-.nav-links a:hover,
-.nav-links a:focus {
-  color: var(--green-3);
-}
-
-/* Aktiv länk (när du vill markera nuvarande sektion) */
-.nav-links a.is-active {
-  color: var(--green-3);
-}
-.nav-links a.is-active::after {
-  transform: scaleX(1);
-}
-/* Ta bort glas/”pill”-bakgrund på menylänkar */
-.nav-links a,
-.nav-links a:hover,
-.nav-links a:focus,
-.nav-links a.is-active {
-  background: transparent !important;   /* nollställer den gamla bakgrunden */
-}
-
-/* Behåll premium-känslan: färg + underline */
-.nav-links a:hover,
-.nav-links a:focus,
-.nav-links a.is-active {
-  color: var(--green-3);
-}
-header.scrolled{ box-shadow:0 6px 22px rgba(0,0,0,.08); }
-/* Användningsområden – premium tiles */
-#anvandning { --tile-bg: var(--base-1); }
-
-.use-grid{
-  display:grid;
-  gap:18px;
-}
-
+/* ===================== 7) ANVÄNDNINGSOMRÅDEN ===================== */
+#anvandning{ --tile-bg: var(--base-1); }
+.use-grid{ display:grid; gap:18px; }
 .use-card{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  padding:28px;
-  background:var(--tile-bg);
-  border:1px solid var(--base-3);
-  border-radius:20px;
-  box-shadow: var(--shadow-sm);
+  display:flex; flex-direction:column; align-items:center; text-align:center;
+  padding:28px; background:var(--tile-bg);
+  border:1px solid var(--base-3); border-radius:20px;
+  box-shadow:var(--shadow-sm);
   transition: transform .18s ease, box-shadow .25s ease, border-color .2s ease, background .2s ease;
-  color:inherit;
-  text-decoration:none;
+  color:inherit; text-decoration:none;
 }
-
 .use-card:hover{
   transform: translateY(-4px);
   box-shadow: 0 14px 34px rgba(0,0,0,.14);
   border-color: rgba(0,0,0,.08);
   background: linear-gradient(180deg, var(--base-1), var(--base-2));
 }
+.use-card svg{ width:44px; height:44px; margin-bottom:12px; color: var(--green-3); }
+.use-card h3{ margin:6px 0 6px; font-size:1.06rem; letter-spacing:.01em; }
+.use-card p{ margin:0; opacity:.85; font-size:.94rem; line-height:1.45; }
 
-.use-card svg{
-  width:44px;
-  height:44px;
-  margin-bottom:12px;
-  color: var(--green-3);
-}
-
-.use-card h3{
-  margin:6px 0 6px;
-  font-size:1.06rem;
-  letter-spacing: .01em;
-}
-
-.use-card p{
-  margin:0;
-  opacity:.85;
-  font-size:.94rem;
-  line-height:1.45;
-}
-
-/* Grid på större skärmar */
-@media (min-width:768px){
-  .use-grid{ grid-template-columns: repeat(3, 1fr); }
-}
-
-/* Fokus (tangentbord) */
-.use-card:focus-visible{
-  outline:3px solid var(--blue-1);
-  outline-offset:4px;
-  border-radius:18px;
-}
-/* Varför PureVia – premium tiles */
-.why-grid{
-  display:grid;
-  gap:18px;
-}
-@media (min-width:768px){
-  .why-grid{ grid-template-columns: repeat(4, 1fr); }
-}
-
+/* ===================== 8) VARFÖR PUREVIA ===================== */
+.why-grid{ display:grid; gap:18px; }
 .why-card{
-  position:relative;
-  background: var(--base-1);
-  border:1px solid var(--base-3);
-  border-radius:20px;
-  padding:24px 22px 22px;
-  box-shadow: var(--shadow-sm);
+  position:relative; background:var(--base-1); border:1px solid var(--base-3);
+  border-radius:20px; padding:24px 22px 22px; box-shadow:var(--shadow-sm);
   transition: transform .18s ease, box-shadow .25s ease, border-color .2s ease, background .2s ease;
 }
-
 .why-card:hover{
   transform: translateY(-4px);
   box-shadow: 0 14px 34px rgba(0,0,0,.14);
   border-color: rgba(0,0,0,.08);
   background: linear-gradient(180deg, var(--base-1), var(--base-2));
 }
-
-.why-card h3{
-  margin:10px 0 8px;
-  font-size:1.06rem;
-  letter-spacing:.01em;
-}
-
-.why-card p{
-  margin:0;
-  opacity:.9;
-  line-height:1.5;
-  font-size:.95rem;
-}
-
-/* Liten ikonbadge överst – brandad */
 .why-icon{
-  width:44px; height:44px;
-  border-radius:14px;
-  display:grid; place-items:center;
-  background: var(--base-2); /* ljus bakgrund istället för blå */
-  color: var(--green-3);     /* ikonen behåller din accentgröna */
-  box-shadow: 0 4px 10px rgba(0,0,0,.06);
+  width:44px; height:44px; border-radius:14px; display:grid; place-items:center;
+  background: var(--base-2); color: var(--green-3); box-shadow: 0 4px 10px rgba(0,0,0,.06);
 }
-
-
 .why-icon svg{ width:22px; height:22px; }
+.why-card h3{ margin:10px 0 8px; font-size:1.06rem; letter-spacing:.01em; }
+.why-card p{ margin:0; opacity:.9; line-height:1.5; font-size:.95rem; }
 
-/* Fokus med tangentbord */
-.why-card:focus-within,
-.why-card:focus-visible{
-  outline:3px solid var(--blue-1);
-  outline-offset:4px;
-  border-radius:18px;
-}
-/* Kontakt – premium layout */
-.contact-grid{
-  display:grid; gap:24px;
-}
-@media (min-width:768px){
-  .contact-grid{ grid-template-columns: 1.2fr 1fr; align-items:start; }
-}
-
-.contact-card, .contact-cta{
-  background: var(--base-1);
-  border:1px solid var(--base-3);
-  border-radius: 20px;
-  padding: 24px;
-  box-shadow: var(--shadow-sm);
+/* ===================== 9) KONTAKT ===================== */
+.contact-single{ max-width:720px; margin:0 auto; }
+.contact-card{
+  background: var(--base-1); border:1px solid var(--base-3);
+  border-radius: 20px; padding: 24px; box-shadow: var(--shadow-sm);
   transition: transform .18s ease, box-shadow .25s ease, border-color .2s ease, background .2s ease;
 }
-.contact-card:hover, .contact-cta:hover{
+.contact-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(0,0,0,.14);
+  border-color: rgba(0,0,0,.08);
+  background: linear-gradient(180deg, var(--base-1), var(--base-2));
+}
+.contact-item{
+  display:grid; grid-template-columns: 44px 1fr max-content;
+  align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid var(--base-3);
+}
+.contact-item:last-child{ border-bottom:0 }
+.contact-icon{
+  width:44px; height:44px; border-radius:14px; display:grid; place-items:center;
+  background: var(--base-2); color: var(--green-3); box-shadow: 0 4px 10px rgba(0,0,0,.06);
+}
+.contact-icon svg{ width:22px; height:22px }
+.contact-text .label{ font-size:.8rem; opacity:.7; margin-bottom:2px }
+.contact-text .value{ font-weight:700 }
+
+/* Copy-knappar (scopad till #kontakt) */
+#kontakt .copy-btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 14px; margin-left:10px;
+  border:0; border-radius:12px; font:inherit; font-weight:600;
+  color:var(--text-light) !important;
+  background: linear-gradient(135deg, #9edbaf, #7abb6e) !important;
+  box-shadow: 0 4px 10px rgba(122,187,110,.18);
+  cursor:pointer;
+  transition: transform .2s ease, box-shadow .3s ease, opacity .3s ease;
+  appearance:none;
+}
+#kontakt .copy-btn:hover, #kontakt .copy-btn:focus{
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(122,187,110,0.25);
+  outline: none;
+}
+#kontakt .copy-btn:active{ transform: scale(.98); }
+#kontakt .copy-btn.copied{
+  background: linear-gradient(135deg, #95ca6f, #6fa85b) !important;
+  box-shadow: 0 6px 16px rgba(111, 168, 91, 0.25);
+}
+#kontakt .copy-btn.copied::after{ content: " ✓"; font-weight:700; opacity:.9; }
+
+/* ===================== 10) FOOTER ===================== */
+footer{
+  background: linear-gradient(180deg, var(--base-2), var(--base-3));
+  border-top: 1px solid var(--base-2);
+}
+.foot{ display:flex; align-items:center; justify-content:flex-start; padding:32px 0 }
+
+/* ===================== 11) TO TOP BUTTON ===================== */
+#toTop{
+  position: fixed; bottom: 24px; right: 24px;
+  padding: 12px 16px; border-radius: 50%;
+  background: var(--green-3); color: #fff; border: none; cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15); display: none;
+  transition: opacity .3s ease, transform .2s ease;
+}
+#toTop.show{ display:block; }
+
+/* ===================== 12) ANIMATIONER / REVEALS ===================== */
+.fade{ opacity:0; transform:translateY(12px); transition:opacity .6s ease, transform .6s ease }
+.fade.show{ opacity:1; transform:translateY(0) }
+
+.fade-in, .fade-up, .fade-down, .fade-left, .fade-right, .fade-zoom{
+  opacity:0; will-change:transform,opacity;
+  transition-property:opacity,transform,filter;
+  transition-duration:.7s;
+  transition-timing-function:cubic-bezier(.22,.61,.36,1);
+  filter: blur(6px);
+}
+.fade-in.show{ opacity:1; filter:none; transform:none; }
+.fade-up{ transform:translateY(16px) } .fade-up.show{ transform:none; filter:none }
+.fade-down{ transform:translateY(-16px) } .fade-down.show{ transform:none; filter:none }
+.fade-left{ transform:translateX(-18px) } .fade-left.show{ transform:none; filter:none }
+.fade-right{ transform:translateX(18px) } .fade-right.show{ transform:none; filter:none }
+.fade-zoom{ transform:scale(.98) } .fade-zoom.show{ transform:scale(1); filter:none }
+
+@media (prefers-reduced-motion: reduce){
+  .fade, .fade-in, .fade-up, .fade-down, .fade-left, .fade-right, .fade-zoom,
+  .fade.show, .fade-in.show, .fade-up.show, .fade-down.show, .fade-left.show, .fade-right.show, .fade-zoom.show{
+    transition:none !important; opacity:1 !important; transform:none !important; filter:none !important;
+  }
+}
+
+/* ===================== 13) RESPONSIVE BREAKPOINTS ===================== */
+@media (min-width:768px){
+  .nav-links{ display:flex }
+  .cta{ display:inline-flex }
+  .grid-3{ grid-template-columns:repeat(3,1fr) }
+  .features{ grid-template-columns:repeat(4,1fr) }
+  .use-grid{ grid-template-columns:repeat(3,1fr) }
+}
+@media (max-width:480px){
+  .foot{ flex-direction:column; text-align:center; gap:12px; padding:20px }
+}
+/* ---- MOBILE NAV (PILL BAR) ---- */
+@media (max-width:767px){
+  header .nav-links{
+    display:flex !important; align-items:center; gap:8px; overflow-x:auto; -webkit-overflow-scrolling:touch;
+    padding:8px 0; scrollbar-width:none;
+    mask-image: linear-gradient(to right, transparent, black 12px, black calc(100% - 12px), transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 12px, black calc(100% - 12px), transparent);
+  }
+  header .nav-links::-webkit-scrollbar{ display:none }
+  header .nav-links a{
+    white-space:nowrap; padding:10px 14px; border-radius:9999px; font-weight:700;
+    border:1px solid var(--base-2); background:#fff; box-shadow:var(--shadow-sm);
+    transition: transform .15s ease, background .2s ease, color .2s ease;
+  }
+  header .nav-links a:hover{ transform:translateY(-1px) }
+  header .nav{ height:64px; gap:8px }
+}
+
+/* Produkter: gemensam höjd på bildrutan */
+#produkter .grid-3 .thumb{
+  height: 340px;      /* ← ändra höjden här */
+  object-fit: contain; /* behåll hela bilden, lämnar vit luft om bilden är “låg” */
+}
+
+/* Se till att våra hovers har transitions */
+.card, .feature, .use-card, .chip, .btn {
+  transition: transform .18s ease, box-shadow .25s ease, border-color .2s ease, background .2s ease;
+}
+
+.card:hover, .feature:hover, .use-card:hover, .chip:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(0,0,0,.14);
+}
+
+/* Hero-overlay ska inte blocka input */
+.spline-bg, .spline-bg::before, .spline-bg::after, .spline-bg iframe {
+  pointer-events: none !important;
+}
+
+/* === Varför PureVia – hover/polish === */
+#om .why-card{
+  transition: transform .18s ease, box-shadow .25s ease, border-color .2s ease, background .2s ease;
+  will-change: transform, box-shadow;
+}
+#om .why-card:hover,
+#om .why-card:focus-within{
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(0,0,0,.14);
+  border-color: rgba(0,0,0,.08);
+  background: linear-gradient(180deg, var(--base-1), var(--base-2));
+}
+/* liten highlight på ikonrutan vid hover */
+#om .why-card:hover .why-icon,
+#om .why-card:focus-within .why-icon{
+  background: var(--base-2);
+  color: var(--green-3);
+  box-shadow: 0 6px 16px rgba(0,0,0,.10);
+}
+/* tillgänglig fokus */
+#om .why-card:focus-visible{
+  outline: 3px solid var(--blue-1);
+  outline-offset: 4px;
+}
+
+/* === Kontakt – hover/polish === */
+#kontakt .contact-card{
+  transition: transform .18s ease, box-shadow .25s ease, border-color .2s ease, background .2s ease;
+  will-change: transform, box-shadow;
+}
+#kontakt .contact-card:hover,
+#kontakt .contact-card:focus-within{
   transform: translateY(-4px);
   box-shadow: 0 14px 34px rgba(0,0,0,.14);
   border-color: rgba(0,0,0,.08);
   background: linear-gradient(180deg, var(--base-1), var(--base-2));
 }
 
-.contact-card h3, .contact-cta h3{ margin:0 0 10px }
-
-.contact-item{
-  display:grid; grid-template-columns: 44px 1fr max-content;
-  align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid var(--base-3);
+/* mjuk hover på varje rad i kontaktkortet */
+#kontakt .contact-item{ transition: background .2s ease, border-radius .2s ease; }
+#kontakt .contact-item:hover{
+  background: rgba(0,0,0,.03);
+  border-radius: 12px;
 }
-.contact-item:last-child{ border-bottom:0 }
 
-.contact-icon{
-  width:44px; height:44px; border-radius:14px;
-  display:grid; place-items:center;
-  background: var(--base-2); color: var(--green-3);
-  box-shadow: 0 4px 10px rgba(0,0,0,.06);
-}
-.contact-icon svg{ width:22px; height:22px }
-
-.contact-text .label{ font-size:.8rem; opacity:.7; margin-bottom:2px }
-.contact-text .value{ font-weight:700 }
-
-.copy-btn{
-  padding:8px 10px; border-radius:10px; border:1px solid var(--base-3);
-  background:#fff; font-weight:600; cursor:pointer;
-  transition: background .2s ease, transform .18s ease, box-shadow .25s ease;
-}
-.copy-btn:hover{ transform: translateY(-2px); box-shadow: var(--shadow); }
-.copy-btn.copied{ background: var(--green-3); color:#fff; border-color: transparent; }
-
-.contact-cta .muted{ margin: 6px 0 14px }
-.contact-actions{ display:flex; gap:10px; flex-wrap:wrap }
-.contact-points{ margin:14px 0 0; padding-left:18px; opacity:.85 }
-.contact-points li{ margin:4px 0 }
-
-/* Mobilvänligt */
-@media (max-width:480px){
-  .contact-item{ grid-template-columns: 36px 1fr; gap:10px }
-  .copy-btn{ grid-column: 1 / -1; justify-self: start; }
-}
-/* Kontakt – enkel, centrerad layout */
-.contact-single{
-  max-width: 720px;
-  margin: 0 auto;
-}
-/* --- HERO (säker overlay-version) --- */
-#hero{ padding:56px 0 28px; background:var(--base-1); }
-
-/* ny, isolerad panel – kolliderar inte med gamla .hero-grid */
-.hero-panel{
+/* Footer: tydlig avskiljande toppskugga */
+footer{
   position: relative;
-  height: clamp(440px, 68vh, 720px);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  background:
-    radial-gradient(1200px 400px at 80% 0%, rgba(175,228,237,.35), transparent),
-    linear-gradient(135deg, var(--base-2), var(--base-3));
-}
-
-/* media/logga */
-.hero-media{
-  position:absolute; inset:0;
-  display:grid; place-items:center;
-}
-.hero-media img{
-  width: min(700px, 58%);   /* minska om loggan krockar med texten */
-  height:auto; object-fit:contain; object-position:center;
-}
-
-/* nederkantens “glass”-overlay */
-.hero-overlay{
-  position:absolute; left: clamp(14px,3vw,20px); right: clamp(14px,3vw,20px); bottom: clamp(12px,2.2vw,20px);
-  display:grid; gap:10px;
-  padding:16px 18px;
-  border-radius:16px;
-  border:1px solid var(--base-2);
-  background: rgba(255,255,255,.75);
-  z-index:2;                 /* säkerställer att texten ligger över bilden */
-}
-@supports (backdrop-filter: blur(6px)){
-  .hero-overlay{ backdrop-filter: saturate(160%) blur(6px); background: rgba(255,255,255,.58); }
-}
-
-/* typografi i overlay */
-.hero-title{ font-size:clamp(36px,5vw,64px); line-height:1.05; margin:.1em 0 .15em; }
-.hero-sub{ font-size:clamp(15px,1.6vw,19px); opacity:.9; margin:0; }
-.hero-actions{ display:flex; gap:12px; align-items:center; }
-
-/* liten trim för riktigt små skärmar */
-@media (max-width:520px){
-  .hero-overlay{ padding:14px; }
-  .hero-media img{ width:min(520px,72%); }
-}
-/* HERO – bildkort överst, textkort under */
-#hero{ padding:56px 0 32px; background:var(--base-1); }
-
-.hero-panel{
-  position: relative;
-  height: clamp(420px, 68vh, 720px);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  background:
-    radial-gradient(1200px 400px at 80% 0%, rgba(175,228,237,.35), transparent),
-    linear-gradient(135deg, var(--base-2), var(--base-3));
-}
-
-.hero-media{
-  position:absolute; inset:0;
-  display:grid; place-items:center;
-}
-.hero-media img{
-  width: min(680px, 60%);
-  height:auto;
-  object-fit:contain;
-  object-position:center;
-}
-
-/* Textkortet under bilden */
-.hero-textcard{
-  margin-top: 16px;
-  padding: 24px 28px;
-  border-radius: var(--radius-xl);
-  background:
-    radial-gradient(800px 300px at 70% 0%, rgba(175,228,237,.3), transparent),
-    linear-gradient(135deg, var(--base-2), var(--base-3));
-  box-shadow: var(--shadow-lg);
-}
-/* ---------- Edge-to-edge HERO ---------- */
-.hero-edge{ padding: 0 0 22px; background: var(--base-1); }
-
-/* Kortet fyller hela vyn i bredd. "center hack" => 100vw + translate */
-.hero-edge-panel{
-  position: relative;
-  width: 100vw;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  height: clamp(460px, 72vh, 780px);
-  border-radius: 0; /* vill du ha mjuk topp/botten? prova var(--radius-xl) */
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  background:
-    radial-gradient(1400px 500px at 80% 0%, rgba(175,228,237,.35), transparent),
-    linear-gradient(135deg, var(--base-2), var(--base-3));
-}
-
-/* Loggan */
-.hero-media{
-  position:absolute; inset:0;
-  display:grid; place-items:center;
-}
-.hero-media img{
-  width: min(820px, 48vw);
-  height:auto; object-fit:contain; object-position:center;
-}
-
-/* Hero textblock till vänster */
-.hero-content {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 50%; /* texten tar vänster halva */
-  padding: 20px;
-  display: flex;
-  align-items: flex-end;
-}
-
-/* Själva baren (textkortet) */
-.hero-bar {
-  max-width: 600px;
-  margin-left: clamp(16px, 4vw, 60px); /* luft från kanten */
-  margin-bottom: clamp(16px, 4vh, 40px);
-  padding: 40px 28px; /* mer padding inuti = högre kort */
-  border-radius: 20px;
-  border: 1px solid var(--base-2);
-  background: rgba(255,255,255,.66);
-  box-shadow: 0 12px 30px rgba(0,0,0,.12);
-  min-height: 280px; /* säkerställer att kortet alltid blir längre */
-}
-@supports (backdrop-filter: blur(8px)) {
-  .hero-bar {
-    backdrop-filter: saturate(160%) blur(8px);
-    background: rgba(255,255,255,.52);
-  }
-}
-
-
-/* Responsiv anpassning */
-@media (max-width: 900px) {
-  .hero-content {
-    width: 100%;
-    left: 0;
-  }
-  .hero-bar {
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-/* ===== HERO: vänster textkort, höger logga (utan överlapp) ===== */
-
-/* Gör själva panelen till en flex-rad */
-.hero-edge .hero-edge-panel{
-  /* panelen är redan 100vw och har höjd i dina tidigare regler */
-  display: flex;
-  align-items: center;             /* vertikal centrering av båda sidor */
-  justify-content: space-between;  /* text vänster, logga höger */
-  gap: clamp(16px, 3vw, 40px);
-  padding: clamp(16px, 3vw, 32px);
-}
-
-/* Ta bort absolut positionering från barnen så flex kan fungera */
-.hero-edge .hero-media,
-.hero-edge .hero-content{
-  position: static !important;
-  inset: auto !important;
-  left: auto !important;
-  right: auto !important;
-  top: auto !important;
-  bottom: auto !important;
-}
-
-/* Vänstra sidan: textblockets kolumn */
-.hero-edge .hero-content{
-  flex: 1 1 48%;
-  display: flex;
-  align-items: center;     /* centrera .hero-bar i höjdled */
-}
-
-/* Själva textkortet – gör det lite högre och centrerat i sin kolumn */
-.hero-edge .hero-bar{
-  width: 100%;
-  max-width: 640px;
-  min-height: 320px;              /* höjd så det möter loggans mitt bättre */
-  padding: 36px 28px;
-  margin-left: clamp(12px, 2vw, 24px);
-  border-radius: 20px;
-  border: 1px solid var(--base-2);
-  background: rgba(255,255,255,.58);
-  box-shadow: 0 12px 30px rgba(0,0,0,.12);
-}
-@supports (backdrop-filter: blur(8px)){
-  .hero-edge .hero-bar{
-    backdrop-filter: saturate(160%) blur(8px);
-    background: rgba(255,255,255,.5);
-  }
-}
-
-/* Högra sidan: loggan */
-.hero-edge .hero-media{
-  flex: 1 1 52%;
-  display: grid;
-  place-items: center;
-}
-.hero-edge .hero-media img{
-  width: min(720px, 46vw);   /* justera om du vill ha större/mindre logo */
-  height: auto;
-  object-fit: contain;
-  object-position: center;
-}
-
-/* Responsiv: stapla på små skärmar */
-@media (max-width: 900px){
-  .hero-edge .hero-edge-panel{
-    flex-direction: column;
-    justify-content: center;
-  }
-  .hero-edge .hero-content,
-  .hero-edge .hero-media{
-    flex: 1 1 auto;
-    width: 100%;
-  }
-  .hero-edge .hero-bar{
-    margin: 0 auto;
-  }
-  .hero-edge .hero-media img{
-    width: min(560px, 78vw);
-  }
-}
-/* ========= Premium HERO-effekter ========= */
-
-/* 1) Subtil, animerad glow över panelen */
-.hero-edge .hero-edge-panel::before{
-  content:"";
-  position:absolute; inset:-2%;
-  background:
-    radial-gradient(600px 280px at center, rgba(175,228,237,.35), transparent),
-    radial-gradient(520px 240px at center, rgba(149,202,111,.20), transparent);
-  background-repeat: no-repeat;
-  /* startpositioner för de två "glows" */
-  background-position: 18% 6%, 82% 18%;
-  z-index: 0;           /* under media + textbaren men över basbakgrunden */
-  pointer-events: none;
-  animation: heroGlow 4s ease-in-out infinite alternate;
-}
-
-@keyframes heroGlow{
-  0%   { background-position: 12% 4%, 88% 22%; }
-  50%  { background-position: 30% 16%, 70% 12%; }
-  100% { background-position: 18% 28%, 82% 6%; }
-}
-
-/* 2) Mjuk float + (JS-variabel) mikro-parallax på loggan */
-.hero-edge .hero-media img{
-  will-change: transform;
-  transform: translateY(var(--pary, 0px));
-  animation: heroFloat 12s ease-in-out infinite;
-}
-
-@keyframes heroFloat{
-  0%   { transform: translateY(calc(var(--pary, 0px) + 0px))   scale(1); }
-  50%  { transform: translateY(calc(var(--pary, 0px) - 6px))  scale(1.005); }
-  100% { transform: translateY(calc(var(--pary, 0px) + 0px))  scale(1); }
-}
-
-/* 3) Fade-in när heron blir synlig */
-.hero-edge .hero-media,
-.hero-edge .hero-bar{
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity .8s ease, transform .8s ease;
-}
-
-.hero-edge.is-inview .hero-media,
-.hero-edge.is-inview .hero-bar{
-  opacity: 1;
-  transform: none;
-}
-.hero-edge.is-inview .hero-bar{ transition-delay: .12s; }
-
-/* 4) Vignette i nederkant för extra läsbarhet */
-.hero-edge .hero-edge-panel::after{
-  content:"";
-  position:absolute; left:0; right:0; bottom:0;
-  height: 34%;
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,.45) 55%,
-    rgba(255,255,255,.82) 100%
-  );
-  pointer-events:none;
-  z-index: 0;
-}
-
-/* Respektera "reduce motion" */
-@media (prefers-reduced-motion: reduce){
-  .hero-edge .hero-edge-panel::before,
-  .hero-edge .hero-media img{ animation: none !important; }
-}
-/* === Aurora Hero Effekt === */
-
-/* Panelen får en hue-rotation över hela gradienten */
-.hero-edge .hero-edge-panel {
-  animation: heroHue 24s ease-in-out infinite alternate;
-}
-
-@keyframes heroHue {
-  0%   { filter: hue-rotate(0deg) saturate(100%); }
-  50%  { filter: hue-rotate(20deg) saturate(120%); }
-  100% { filter: hue-rotate(-20deg) saturate(100%); }
-}
-
-/* Glowsen i ::before får färgskift + rörelse */
-.hero-edge .hero-edge-panel::before {
-  content:"";
-  position:absolute; inset:-2%;
-  background:
-    radial-gradient(600px 280px at center, rgba(175,228,237,.35), transparent),
-    radial-gradient(520px 240px at center, rgba(149,202,111,.25), transparent);
-  background-repeat: no-repeat;
-  background-position: 18% 6%, 82% 18%;
-  z-index: 0;
-  pointer-events: none;
-  animation: heroGlow 18s ease-in-out infinite alternate;
-}
-
-@keyframes heroGlow {
-  0% {
-    background-position: 12% 4%, 88% 22%;
-    background:
-      radial-gradient(600px 280px at center, rgba(175,228,237,.35), transparent),
-      radial-gradient(520px 240px at center, rgba(149,202,111,.25), transparent);
-  }
-  50% {
-    background-position: 30% 16%, 70% 12%;
-    background:
-      radial-gradient(600px 280px at center, rgba(149,202,111,.35), transparent),
-      radial-gradient(520px 240px at center, rgba(183,218,221,.25), transparent);
-  }
-  100% {
-    background-position: 18% 28%, 82% 6%;
-    background:
-      radial-gradient(600px 280px at center, rgba(183,218,221,.35), transparent),
-      radial-gradient(520px 240px at center, rgba(175,228,237,.25), transparent);
-  }
-}
-
-/* Respekt för reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .hero-edge .hero-edge-panel,
-  .hero-edge .hero-edge-panel::before {
-    animation: none !important;
-    filter: none !important;
-  }
-}
-/* ===== Hero: stora levande gradient-blobbar ===== */
-.hero-edge .hero-edge-panel{
-  position: relative; /* viktigt så ::before ligger i panelen */
-  --speed: 5s;       /* ändra till 14s för snabbare, 30s för långsammare */
-}
-
-/* Skapar många “blobbar” i ett enda lager som animeras */
-.hero-edge .hero-edge-panel::before{
-  content:"";
-  position:absolute; inset:-2%;
-  pointer-events:none;
-  z-index:0; /* under media + textbar men över basbakgrunden */
-
-  /* Basbakgrund (din befintliga ton) */
-  background:
-    linear-gradient(135deg, var(--base-2), var(--base-1)),
-
-    /* Blobbar: flera radial-gradients i olika storlekar/nyanser */
-    radial-gradient( circle at 12% 22%, rgba(175,228,237,.45) 0 28%, transparent 30% ),
-    radial-gradient( circle at 82% 18%, rgba(149,202,111,.35) 0 26%, transparent 28% ),
-    radial-gradient( circle at 30% 74%, rgba(183,218,221,.42) 0 30%, transparent 32% ),
-    radial-gradient( circle at 72% 68%, rgba(136,195,112,.50) 0 24%, transparent 26% ),
-    radial-gradient( circle at 48% 42%, rgba(175,228,237,.45) 0 22%, transparent 24% ),
-    radial-gradient( circle at 88% 82%, rgba(122,187,110,.40) 0 26%, transparent 28% );
-
-  /* Ovanstående 7 gradienter + basen = 8 “bakgrunder” i listan.
-     Vi animerar deras positioner och storlekar med keyframes. */
-  background-repeat: no-repeat;
-
-  /* Startstorlekar (procent av panelens storlek) */
-  background-size:
-    100% 100%,         /* bas-ton */
-    60% 60%,           /* blob 1 */
-    48% 48%,           /* blob 2 */
-    56% 56%,           /* blob 3 */
-    44% 44%,           /* blob 4 */
-    40% 40%,           /* blob 5 */
-    46% 46%;           /* blob 6 */
-
-  animation: blobDance var(--speed) ease-in-out infinite alternate;
-}
-
-@keyframes blobDance{
-  0%{
-    /* Startpositioner (matchar “at X% Y%” ovan) */
-    background-position:
-      0% 0%,           /* bas-ton */
-      12% 22%,
-      82% 18%,
-      30% 74%,
-      72% 68%,
-      48% 42%,
-      88% 82%;
-    background-size:
-      100% 100%,
-      60% 60%,
-      48% 48%,
-      56% 56%,
-      44% 44%,
-      40% 40%,
-      46% 46%;
-    filter: hue-rotate(0deg) saturate(110%);
-  }
-  50%{
-    background-position:
-      0% 0%,
-      22% 18%,
-      72% 22%,
-      24% 62%,
-      78% 56%,
-      40% 38%,
-      82% 70%;
-    background-size:
-      100% 100%,
-      54% 54%,
-      52% 52%,
-      50% 50%,
-      48% 48%,
-      44% 44%,
-      52% 52%;
-    filter: hue-rotate(10deg) saturate(120%);
-  }
-  100%{
-    background-position:
-      0% 0%,
-      18% 28%,
-      82% 10%,
-      36% 66%,
-      68% 74%,
-      56% 46%,
-      74% 86%;
-    background-size:
-      100% 100%,
-      64% 64%,
-      46% 46%,
-      58% 58%,
-      42% 42%,
-      46% 46%,
-      50% 50%;
-    filter: hue-rotate(-10deg) saturate(115%);
-  }
-}
-
-/* Respekt för reduced motion (stilla men snyggt) */
-@media (prefers-reduced-motion: reduce){
-  .hero-edge .hero-edge-panel::before{
-    animation: none !important;
-    filter: none !important;
-  }
-}
-.foot{
-  display: flex;
-  justify-content: flex-start; /* bara vänster */
-  padding: 28px 0;
-}
-/* ===== Footer premium style ===== */
-footer {
   background: linear-gradient(180deg, var(--base-2), var(--base-3));
   border-top: 1px solid var(--base-2);
+  box-shadow: 0 -8px 22px rgba(0,0,0,.08); /* ← skuggan ovanför footern */
 }
 
-.foot {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 32px 0;
-}
-
-.foot-brand {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: var(--text-dark);
-}
-
-.foot-brand strong {
-  font-size: 1.1rem;
-  font-weight: 700;
-  display: block;
-  margin-bottom: 4px;
-  background: linear-gradient(90deg, var(--green-2), var(--green-3));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.foot-brand span {
-  opacity: 0.8;
-}
-
-/* Subtil hover-effekt (om du vill lägga till länk i framtiden) */
-.foot a {
-  color: inherit;
-  text-decoration: none;
-  transition: opacity .25s ease;
-}
-.foot a:hover { opacity: 0.6; }
-
-.hero-edge .hero-edge-panel {
-  width: 97%;
-}
-/* --- HERO: stoppa att loggan kapas på mobil --- */
-@media (max-width: 640px){
-  /* Se till att kortet får extra topp-luft och rundningen inte äter loggan */
-  .hero-edge .hero-edge-panel{
-    padding-top: clamp(80px, 10vw + env(safe-area-inset-top), 72px);
-    overflow: hidden; /* respektera rundade hörn */
-  }
-
-  /* Om du har en hero-visual med fast höjd – släpp den på mobil */
-  .hero-visual{
-    height: auto;
-  }
-
-  /* Skala ner loggan lite, centrera och låt den innehållas i kortet */
-  .hero-media img,
-  .hero-visual img{
-    display: block;
-    width: min(88vw, 560px);
-    height: auto;
-    max-height: 48vh;       /* så den inte dominerar hela skärmen */
-    object-fit: contain;
-    margin: 0 auto;         /* centrera */
-    transform: translateY(4px); /* lite extra luft uppifrån */
-  }
-
-  /* (Valfritt) ge hela hero-sektionen lite luft från headern */
-  #hero{ margin-top: 6px; }
-}
-/* --- Hero: minska tomrum överst på mobil --- */
-@media (max-width: 640px){
-  /* 1) Minska sektionens topp-padding */
-  #hero,
-  .hero-edge{ padding-top: 4px; }            /* var ev. 56px/22px tidigare */
-
-  /* 2) Behåll säker luft åt loggan inne i kortet (från tidigare fix) */
-  .hero-edge .hero-edge-panel{
-    padding-top: calc(32px + env(safe-area-inset-top)); /* kan trimmas ned lite */
-  }
-
-  /* 3) (valfritt) Dra upp hela kortet någon pixel extra */
-  /* Aktivera om du fortfarande ser glapp: */
-  /* .hero-edge { margin-top: -6px; } */
-}
-/* ===== Mobilnav: horisontell pill-bar (utan JS) ===== */
+/* Footer: centrerad layout på mobil */
 @media (max-width: 767px){
-  /* visa nav-länkar även på mobil (överskriv din display:none) */
-  header .nav-links{
-    display: flex !important;
-    align-items: center;
-    gap: 8px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding: 8px 0;
-    scrollbar-width: none;      /* Firefox */
-    mask-image: linear-gradient(to right, transparent, black 12px, black calc(100% - 12px), transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 12px, black calc(100% - 12px), transparent);
-  }
-  header .nav-links::-webkit-scrollbar{ display: none; } /* Chrome/Safari */
-
-  header .nav-links a{
-    white-space: nowrap;
-    padding: 10px 14px;
-    border-radius: 9999px;
-    font-weight: 700;
-    border: 1px solid var(--base-2);
-    background: #fff;
-    box-shadow: var(--shadow-sm);
-    transition: transform .15s ease, background .2s ease, color .2s ease;
-  }
-  header .nav-links a:hover{ transform: translateY(-1px); }
-  header .nav-links a.is-active{
-    color: var(--text-light);
-    background: linear-gradient(90deg, var(--green-2), var(--green-3));
-    border-color: transparent;
-  }
-
-  /* göm stora CTA-knappen i header på mobil om du vill frigöra plats */
-  header .cta{ display: none !important; }
-
-  /* behåll samma höjd på headern och centrera innehållet lite bättre */
-  header .nav{
-    height: 64px;
-    gap: 8px;
+  .foot{
+    justify-content: center;   /* centrera horisontellt */
+    align-items: center;       /* centrera vertikalt i raden */
+    text-align: center;        /* centrera texten */
+    gap: 12px;
+    padding: 20px;
   }
 }
-/* ===== Sticky header förbättring ===== */
-header {
-  backdrop-filter: saturate(180%) blur(12px);  /* glassy känsla */
-  background: rgba(255,255,255,0.72);          /* semi-transparent bakgrund */
-  transition: box-shadow .25s ease, background .25s ease;
-}
 
-/* Lägg till skugga när man scrollar ned */
-header.scrolled {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-  background: rgba(255,255,255,0.9); /* lite mer solid så texten alltid syns */
-}
-/* Se till att header-text alltid är mörk vid scroll */
-header, 
-header a, 
-header strong {
-  color: var(--text-dark);
-  transition: color .25s ease;
-}
-
-header.scrolled,
-header.scrolled a,
-header.scrolled strong {
-  color: var(--text-dark); /* behåll mörk text även när bakgrunden ändras */
-}
-/* ===== Fix: tvinga mörk text i header vid scroll ===== */
-header.scrolled .brand strong,
-header.scrolled .brand,
-header.scrolled .nav-links a,
-header.scrolled .cta {
-  color: var(--text-dark) !important;
-  fill: var(--text-dark) !important;
-}
-/* ===== Kontakt: kopiera-knappar med PureVia-gradient ===== */
-.contact .copy-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 10px 14px;
-  border-radius: 12px;
+/* ===== Sektionstitlar: stor och med grön underline ===== */
+.section-title{
+  position: relative;
+  display: inline-block;
+  margin: 0 0 32px;
+  line-height: 1.1;
   font-weight: 600;
-  cursor: pointer;
-  border: none;
-  color: var(--text-light);
-  background: linear-gradient(135deg, var(--green-2), var(--green-3));
-  box-shadow: 0 4px 12px rgba(122,187,110,0.25);
-  transition: transform .15s ease, box-shadow .2s ease;
+  letter-spacing: -.01em;
+  /* gör dem större igen */
+  font-size: clamp(34px, 4.2vw, 34px);
 }
 
-.contact .copy-btn:hover,
-.contact .copy-btn:focus {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(122,187,110,0.35);
-  outline: none;
+/* den gröna linjen under */
+.section-title::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: min(120px, 42%);           /* längden på “linjen” */
+  height: 3px;                      /* tjocklek */
+  background: linear-gradient(90deg, var(--green-2), var(--green-3));
+  border-radius: 999px;
+  opacity: .9;
 }
 
-.contact .copy-btn:active {
-  transform: scale(0.96);
-  box-shadow: 0 2px 6px rgba(122,187,110,0.4);
-}
-/* ===== Kontakt: gradient-knappar för "Kopiera" ===== */
-.contact .copy-btn{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:10px 14px;
-  margin-left:10px;                 /* lite avstånd från länken */
-  border:0;
-  border-radius:12px;
-  font:inherit;
-  font-weight:700;
-  color:var(--text-light);
-  background:linear-gradient(135deg, var(--green-2), var(--green-3));
-  box-shadow:0 4px 12px rgba(122,187,110,.25);
-  cursor:pointer;
-  transition:transform .15s ease, box-shadow .2s ease, opacity .2s ease;
-}
-.contact .copy-btn:hover,
-.contact .copy-btn:focus{
-  transform:translateY(-2px);
-  box-shadow:0 8px 22px rgba(122,187,110,.35);
-  outline:none;
-}
-.contact .copy-btn:active{ transform:scale(.97); }
-
-/* Visuell feedback när kopieringen lyckats */
-.contact .copy-btn.copied{
-  background:linear-gradient(135deg, #5bbf6f, #46a85e);
-  box-shadow:0 6px 16px rgba(70,168,94,.35);
-}
-.contact .copy-btn.copied::after{
-  content:"✓";
-  font-weight:800;
+/* om du ibland centrerar rubriker, lägg .section-title--center i HTML */
+.section-title--center{ text-align:center; display:block; }
+.section-title--center::after{
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-/* Liten justering på väldigt små skärmar */
-@media (max-width:480px){
-  .contact .copy-btn{
-    padding:9px 12px;
-    border-radius:10px;
-    margin-left:8px;
+@media (max-width: 480px){
+  .section-title{ font-size: clamp(28px, 7vw, 36px); }
+  .section-title::after{ height: 4px; bottom: -8px; width: 96px; }
+}
+
+/* HERO: full viewport (minus navbar) */
+:root { --header-h: 65px; }         /* set this to your real header height */
+
+.pv-hero{
+  position: relative;
+  padding: 0;                        /* kill section's default padding */
+  height: calc(100svh - var(--header-h));
+  min-height: 520px;                 /* safety for very small screens */
+}
+@supports (height: 100dvh) {         /* best mobile behavior */
+  .pv-hero{ height: calc(100dvh - var(--header-h)); }
+}
+
+/* Spline stays full-bleed */
+.spline-bg{ position:absolute; inset:0; z-index:0; overflow:hidden; }
+.spline-bg iframe{ width:100%; height:100%; border:0; pointer-events:none; }
+
+/* Make the content fill the hero height */
+.pv-hero-inner{
+  height: 100%;
+  display: flex;
+  align-items: flex-start;           /* top-align */
+  justify-content: center;
+  padding: calc(var(--header-h) + 24px) 2rem 0;  /* clear the navbar */
+}
+
+/* your centered hero copy should not add extra top padding */
+.pv-hero-centered{ padding: 0; }
+
+.pv-hero { position: relative; }
+.pv-hero::after{
+  content:"";
+  position:absolute; inset:0; z-index:1; pointer-events:none;
+  background: radial-gradient(600px 240px at 50% 44%, rgba(255,255,255,.55), transparent 70%);
+}
+.pv-hero-centered{ position:relative; z-index:2; } /* text above spotlight */
+
+/* --- Fix: kontakt-kort på mobil --- */
+@media (max-width: 640px){
+  /* 2 kolumner: ikon + text. Ingen tredje "knapp"-kolumn */
+  #kontakt .contact-item{
+    grid-template-columns: 40px 1fr;
+    align-items: start;
+    gap: 10px;
+  }
+
+  /* Lägg knappen under texten (kolumn 2), vänsterställd */
+  #kontakt .contact-item .copy-btn{
+    grid-column: 1 / -1;       /* eller 1 / -1 om du vill låta den gå hela bredden */
+    justify-self: start;
+    margin-left: 0;            /* neutralisera tidigare margin-left */
+    margin-top: 8px;
+    white-space: nowrap;       /* för säkerhets skull så 'Kopiera' inte radbryts */
   }
 }
-/* ===== Kontakt: gradient-knappar för "Kopiera" (scopad till #kontakt) ===== */
+
+/* === Copy button: collapse-to-check animation === */
 #kontakt .copy-btn{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:10px 14px;
-  margin-left:10px;
-  border:0;
-  border-radius:12px;
-  font:inherit;
-  font-weight:700;
-  color:var(--text-light) !important;
-  background:linear-gradient(135deg, var(--green-2), var(--green-3)) !important;
-  box-shadow:0 4px 12px rgba(122,187,110,.25);
-  cursor:pointer;
-  transition:transform .15s ease, box-shadow .2s ease, opacity .2s ease;
-  appearance:none;
-}
-#kontakt .copy-btn:hover,
-#kontakt .copy-btn:focus{
-  transform:translateY(-2px);
-  box-shadow:0 8px 22px rgba(122,187,110,.35);
-  outline:none;
-}
-#kontakt .copy-btn:active{ transform:scale(.97); }
-
-#kontakt .copy-btn.copied{
-  background:linear-gradient(135deg, #5bbf6f, #46a85e) !important;
-  box-shadow:0 6px 16px rgba(70,168,94,.35);
-}
-#kontakt .copy-btn.copied::after{
-  content:" ✓";
-  font-weight:800;
-}
-
-@media (max-width:480px){
-  #kontakt .copy-btn{
-    padding:9px 12px;
-    border-radius:10px;
-    margin-left:8px;
-  }
-}
-/* ===== Kontakt: mjukare gradient-knappar för "Kopiera" ===== */
-#kontakt .copy-btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 14px;
-  margin-left: 10px;
-  border: 0;
+  height: 40px;                /* stabil höjd */
+  padding: 0 14px;             /* textläge */
   border-radius: 12px;
-  font: inherit;
-  font-weight: 600;
-  color: var(--text-light) !important;
-  background: linear-gradient(135deg, #9edbaf, #7abb6e) !important; /* mjukare grön */
-  box-shadow: 0 4px 10px rgba(122, 187, 110, 0.18);
-  cursor: pointer;
-  transition: transform .2s ease, box-shadow .3s ease, opacity .3s ease;
-  appearance: none;
+  transition:
+    width .25s ease,
+    padding .25s ease,
+    border-radius .25s ease,
+    transform .15s ease,
+    box-shadow .25s ease,
+    background .2s ease;
 }
 
-#kontakt .copy-btn:hover,
-#kontakt .copy-btn:focus {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(122, 187, 110, 0.25);
-  outline: none;
+#kontakt .copy-btn .copy-label{
+  transition: opacity .01s ease, transform .30s ease;
 }
 
-#kontakt .copy-btn:active {
-  transform: scale(.98);
+/* När kopierat: gör den “pill”→“cirkel” */
+#kontakt .copy-btn.copied{
+  width: 40px;                 /* samma som height ⇒ cirkel */
+  padding: 0;
+  border-radius: 999px;
 }
 
-#kontakt .copy-btn.copied {
-  background: linear-gradient(135deg, #95ca6f, #6fa85b) !important;
-  box-shadow: 0 6px 16px rgba(111, 168, 91, 0.25);
-}
-
-#kontakt .copy-btn.copied::after {
-  content: " ✓";
-  font-weight: 700;
-  opacity: 0.9;
-}
-
-@media (max-width: 480px) {
-  #kontakt .copy-btn {
-    padding: 9px 12px;
-    border-radius: 10px;
-    margin-left: 8px;
-    font-size: 0.9rem;
-  }
-}
-/* ===== Scroll-fades / premium reveals ===== */
-.fade-in,
-.fade-up,
-.fade-down,
-.fade-left,
-.fade-right,
-.fade-zoom {
+/* Dölj texten när den är i 'copied'-state */
+#kontakt .copy-btn.copied .copy-label{
   opacity: 0;
-  will-change: transform, opacity;
-  transition-property: opacity, transform, filter;
-  transition-duration: .7s;
-  transition-timing-function: cubic-bezier(.22,.61,.36,1);
-  filter: blur(6px);
+  transform: scale(.9);
 }
 
-.fade-in.show     { opacity: 1; filter: blur(0); transform: none; }
-.fade-up          { transform: translateY(16px); }
-.fade-up.show     { transform: translateY(0);    filter: blur(0); }
-
-.fade-down        { transform: translateY(-16px); }
-.fade-down.show   { transform: translateY(0);      filter: blur(0); }
-
-.fade-left        { transform: translateX(-18px); }
-.fade-left.show   { transform: translateX(0);       filter: blur(0); }
-
-.fade-right       { transform: translateX(18px); }
-.fade-right.show  { transform: translateX(0);       filter: blur(0); }
-
-.fade-zoom        { transform: scale(.98); }
-.fade-zoom.show   { transform: scale(1);            filter: blur(0); }
-
-/* Stagger – ge små delays för barn i en container */
-.stagger > * { transition-delay: 0s; }
-.stagger > *:nth-child(1) { transition-delay: .05s; }
-.stagger > *:nth-child(2) { transition-delay: .10s; }
-.stagger > *:nth-child(3) { transition-delay: .15s; }
-.stagger > *:nth-child(4) { transition-delay: .20s; }
-.stagger > *:nth-child(5) { transition-delay: .25s; }
-.stagger > *:nth-child(6) { transition-delay: .30s; }
-
-/* Reduced motion – visa allt direkt utan animation */
-@media (prefers-reduced-motion: reduce) {
-  .fade-in,.fade-up,.fade-down,.fade-left,.fade-right,.fade-zoom,
-  .fade-in.show,.fade-up.show,.fade-down.show,.fade-left.show,.fade-right.show,.fade-zoom.show {
-    transition: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-    filter: none !important;
-  }
-}
-/* ===== Tighta upp avstånden kring hero ===== */
-
-/* 1) Minimera gap mellan navbar (sticky header) och hero */
-header + #hero,
-header + .hero-edge{
-  margin-top: 0;                 /* ingen extra toppmarginal */
-}
-#hero, .hero-edge{
-  padding-top: clamp(6px, 1.2vh, 14px);   /* lite luft men tight */
+/* Checkmark-lagret */
+#kontakt .copy-btn::after{
+  content: "✓";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  color: #fff;
+  opacity: 0;
+  transform: scale(.6);
+  transition: opacity .2s ease, transform .2s ease;
 }
 
-/* 2) Minska utrymmet UNDER hero, innan nästa sektion (Produkter) */
-#hero, .hero-edge{
-  padding-bottom: clamp(10px, 1.6vh, 18px);
-}
-/* Oavsett vad som kommer efter hero: dra ner topp-paddingen där */
-#hero + section,
-.hero-edge + section{
-  padding-top: clamp(20px, 3vh, 36px) !important;  /* var 72px globalt */
+/* Visa checkmark när kopierat */
+#kontakt .copy-btn.copied::after{
+  opacity: 1;
+  transform: scale(1);
 }
 
-/* 3) Se till att inget internt i hero trycker utåt med extra marginaler */
-.hero-edge .hero-edge-panel,
-.hero-edge .hero-content,
-.hero-edge .hero-bar{
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-/* 4) Mobil-tuning: ännu tajtare */
+/* Mobil-layout (behåll fixen så knappen inte flyter ut till höger) */
 @media (max-width: 640px){
-  #hero, .hero-edge{ padding-top: 4px; padding-bottom: 10px; }
-  #hero + section, .hero-edge + section{ padding-top: 18px !important; }
+  #kontakt .contact-item{
+    grid-template-columns: 40px 1fr;
+    align-items: start;
+    gap: 10px;
+  }
+  #kontakt .copy-btn{
+    grid-column: 2 / 3;      /* lägg under texten, vänsterställd */
+    justify-self: start;
+    margin-left: 0;
+    margin-top: 8px;
+    white-space: nowrap;
+  }
 }
-/* ===== Mobilfix för hero ===== */
+
+/* ===== Premium Glass Nav (drop-in, paste at end) ===== */
+:root{
+  --glass-bg: rgba(255,255,255,.42);
+  --glass-bg-scrolled: rgba(255,255,255,.72);
+  --glass-border: rgba(255,255,255,.45);
+  --glass-shadow: 0 8px 30px rgba(0,0,0,.08);
+  --ink: #0f1a12;
+}
+
+header{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--glass-bg);
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  border-bottom: 1px solid rgba(0,0,0,.04);
+  /* faint frosted glow from the corners */
+  isolation: isolate;
+}
+header::before{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    radial-gradient(120% 80% at 0% -20%, rgba(149,202,111,.15), transparent 60%),
+    radial-gradient(120% 80% at 100% 0%, rgba(175,228,237,.12), transparent 60%);
+  pointer-events:none;
+}
+
+header .nav{
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 68px;
+  padding: 10px 16px;
+  display:flex; align-items:center; gap:10px;
+}
+
+/* Dark ink for brand */
+header .brand strong{ color: var(--ink); font-weight:800; letter-spacing:.01em; }
+
+/* Glass intensifies a bit on scroll (your JS already toggles .scrolled) */
+header.scrolled{
+  background: var(--glass-bg-scrolled);
+  box-shadow: var(--glass-shadow);
+  border-bottom-color: rgba(0,0,0,.06);
+}
+
+/* Nav links: glassy hover + animated underline */
+header .nav-links{ display:flex; gap:6px; }
+header .nav-links a{
+  position:relative;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  color: var(--ink);
+  transition: background .25s ease, color .25s ease, transform .12s ease;
+}
+header .nav-links a:hover,
+header .nav-links a:focus{
+  background: rgba(255,255,255,.28);
+  color: var(--ink);
+}
+header .nav-links a::after{
+  content:"";
+  position:absolute; left:12px; right:12px; bottom:6px;
+  height:2px; border-radius:2px;
+  background: linear-gradient(90deg, var(--green-2), var(--green-3));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s ease;
+  opacity:.9;
+}
+header .nav-links a:hover::after,
+header .nav-links a:focus::after,
+header .nav-links a.is-active::after{
+  transform: scaleX(1);
+}
+header .nav-links a.is-active{
+  background: rgba(255,255,255,.36);
+}
+
+/* CTA: glossy, pill, subtle shine */
+header .cta{
+  position: relative;
+  display:inline-flex; align-items:center;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--green-2), var(--green-3));
+  color:#fff; font-weight:800;
+  box-shadow: 0 8px 20px rgba(122,187,110,.35),
+              inset 0 0 0 1px rgba(255,255,255,.35);
+  transition: transform .15s ease, box-shadow .25s ease, filter .2s ease;
+}
+header .cta:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(122,187,110,.45),
+              inset 0 0 0 1px rgba(255,255,255,.45);
+  filter: saturate(1.02);
+}
+header .cta::before{
+  content:"";
+  position:absolute; inset:1px;
+  border-radius: 999px;
+  background: radial-gradient(120% 60% at 30% -20%, rgba(255,255,255,.35), transparent 55%);
+  opacity:.6; pointer-events:none;
+}
+header .cta svg{ margin-left:6px; }
+
+/* Mobile: iOS-style pill scroller, hide CTA to keep it clean */
+@media (max-width: 767px){
+  header .nav{ height:64px; padding:8px 12px; }
+
+  header .nav-links{
+    display:flex !important;
+    align-items:center; gap:8px;
+    overflow-x:auto; -webkit-overflow-scrolling: touch;
+    padding: 6px 0;
+    scrollbar-width: none;
+    mask-image: linear-gradient(to right, transparent, black 12px, black calc(100% - 12px), transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 12px, black calc(100% - 12px), transparent);
+  }
+  header .nav-links::-webkit-scrollbar{ display:none; }
+
+  header .nav-links a{
+    white-space: nowrap;
+    background: rgba(255,255,255,.35);
+    border: 1px solid rgba(255,255,255,.5);
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    border-radius: 9999px;
+  }
+
+}
+
+/* --- Fix: Header-CTA ska inte strechas/distortas --- */
+header .cta{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: px;
+
+  /* inga konstiga auto-stretchs */
+  width: auto;
+  min-width: unset;
+  height: auto;
+
+  /* “pill” dimensioner */
+  padding: 14px 20px;
+  border-radius: 999px;
+  line-height: 1;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+/* ikonens storlek + stoppa att den påverkar layouten */
+header .cta svg{
+  width: 10px;
+  height: 10px;
+  margin-left: 6px;
+  flex: 0 0 auto;
+}
+
+/* Om highlight-glansen såg “distressed” ut – tona ner den lite */
+header .cta::before{ opacity: .35; }          /* eller testa 0.25–0.45 */
+
+/* Behåll ren form även i scrollat läge */
+header.scrolled .cta{ transform: none; }
+
+/* === Hero readability halo (subtle shadow behind text block) === */
+.pv-hero-centered{
+  position: relative;
+  z-index: 2;               /* stays above the Spline layer */
+}
+
+/* Soft radial haze behind the text block */
+.pv-hero-centered::before{
+  content:"";
+  position:absolute;
+  inset:-75px;              /* slightly larger than the text area */
+  border-radius: 24px;
+  pointer-events:none;
+  z-index: 0;
+
+  /* light, soft “glass” glow */
+  background:
+    radial-gradient(60% 55% at 50% 45%,
+      rgba(255,255,255,.55) 0%,
+      rgba(129, 231, 115, 0.555) 55%,
+      transparent 80%);
+  filter: blur(10px);
+  opacity:.40;
+}
+
+/* Keep actual text & buttons above the halo and add a tiny text-shadow */
+.pv-hero-centered .hero-title,
+.pv-hero-centered .lede,
+.pv-hero-centered .pv-cta{
+  position: relative;
+  z-index: 1;
+}
+
+.pv-hero-centered .hero-title{
+  text-shadow: 0 2px 12px rgba(0,0,0,.16);
+}
+.pv-hero-centered .lede{
+  text-shadow: 0 1px 8px rgba(0,0,0,.12);
+}
+
+/* Slightly stronger on small screens for readability */
 @media (max-width: 640px){
-  /* 1) Sänk loggan i hero */
-  /* Gäller om du har <img> i .hero-media */
-  .hero-media img{
-    object-position: 50% 60%; /* 60% = lite lägre. Testa 65–70% om du vill ännu lägre */
-  }
-  /* Om du istället använder background-image: */
-  .hero-media{
-    background-position: 50% 60%;
-  }
-
-  /* 2) Gör “glas”-kortet tydligt men utan att tvätta ur innehåll */
-  .hero-content{
-    /* Se till att själva kortet inte sätter opacity på allt innanför */
-    opacity: 1 !important;
-    background: rgba(255,255,255,0.66);             /* mjuk vit glas */
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    /* Hjälper Safari att rendera lager separat så barnens färger inte “blandas” */
-    isolation: isolate;
-  }
-
-  /* 3) Gör knappen helt solid och stäng av iOS default-appearance */
-  #hero .btn.btn-primary{
-    -webkit-appearance: none;
-    appearance: none;
-    opacity: 1 !important;                          /* säkerställ ingen nedtoning */
-    background: linear-gradient(135deg, #95d6a6, #6fbd7a) !important; /* lite starkare/mjuk grön */
-    box-shadow: 0 8px 20px rgba(111,189,122,.28);    /* lagom glow */
-    filter: none !important;
-  }
-
-  /* Liten förbättring på tryck/hover för mobil */
-  #hero .btn.btn-primary:active{
-    transform: scale(.98);
+  .pv-hero-centered::before{
+    filter: blur(16px);
+    opacity: .75;
   }
 }
-/* ===== Mobile hero tuning + iOS-knapp ===== */
-@media (max-width: 640px){
-
-  /* 1) Flytta ner loggan i hero oavsett markup-variant */
-  /* Vanlig variant vi använt: .hero-edge .hero-media img */
-  .hero-edge .hero-media img,
-  .hero-media img,
-  .hero-visual-inner img {                  /* fallback om du har den klassen kvar */
-    object-position: 50% 68% !important;    /* lägre (öka till 72% om du vill ner mer) */
-    transform: translateY(6%) !important;   /* liten extra knuff neråt */
-  }
-
-  /* Om loggan ligger som background-image istället för <img> */
-  .hero-edge .hero-media,
-  .hero-media {
-    background-position: 50% 68% !important;
-  }
-
-  /* 2) Glas-kortet ska inte tvätta ur innehåll */
-  .hero-content {
-    opacity: 1 !important;                        /* ingen global nedtoning */
-    background: rgba(255,255,255,0.68);           /* mjuk "glas" utan att bleka barn */
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    isolation: isolate;                            /* renare layering i Safari */
-  }
-
-  /* 3) Gör CTA-knappen lika pigg som på desktop på iOS */
-  .hero-content .btn.btn-primary,
-  #hero .btn.btn-primary {
-    -webkit-appearance: none !important;
-    appearance: none !important;
-    filter: none !important;
-    opacity: 1 !important;
-    background: linear-gradient(135deg, #8fd39c, #65bb79) !important; /* lite djupare grön */
-    box-shadow: 0 10px 24px rgba(101,187,121,.28) !important;
-  }
-
-  .hero-content .btn.btn-primary:active,
-  #hero .btn.btn-primary:active {
-    transform: scale(.98);
-  }
-}
-
-
 
