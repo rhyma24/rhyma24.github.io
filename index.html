@@ -1,41 +1,73 @@
 <!doctype html>
 <html lang="sv">
 <head>
+  <!-- ================================
+       META & SEO
+  ==================================== -->
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>PureVia Sweden – Luftreningssystem för industri, kontor och storkök</title>
   <meta name="description" content="Stand-alone och integrerade system som kombinerar filtrering, jonisering och styrd oxidationsprocess." />
+  <meta name="theme-color" content="#f1f9dc" />
+  <link rel="canonical" href="https://rhyma24.github.io/" />
+
+  <!-- Social preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PureVia Sweden – Luftreningssystem för industri, kontor och storkök">
+  <meta property="og:description" content="Stand-alone och integrerade system som kombinerar filtrering, jonisering och styrd oxidationsprocess.">
+  <meta property="og:url" content="https://rhyma24.github.io/">
+  <!-- Byt bilden till din faktiska OG-bild när du har den -->
+  <meta property="og:image" content="https://rhyma24.github.io/assets/og-hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- ================================
+       FONTS & ICONS
+  ==================================== -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="style.css"/>
-  <link rel="icon" type="image/x-icon" href="assets/logo_simple.png">
-  <!-- Schema.org för Google -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "PureVia Sweden",
-  "url": "https://rhyma24.github.io/",
-  "logo": "https://rhyma24.github.io/assets/logo_simple.png",
-  "contactPoint": [{
-    "@type": "ContactPoint",
-    "telephone": "+46-735-944-654",
-    "contactType": "sales",
-    "areaServed": "SE",
-    "availableLanguage": ["sv", "en"]
-  }]
-}
-</script>
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" sizes="any">
+
+  <!-- Small perf win for the hero embed -->
+  <link rel="preconnect" href="https://my.spline.design" crossorigin>
+
+  <!-- ================================
+       STYLES (external)
+  ==================================== -->
+  <link rel="stylesheet" type="text/css" href="style.css" />
+
+  <!-- ================================
+       SCHEMA.ORG (Organization)
+  ==================================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "PureVia Sweden",
+    "url": "https://rhyma24.github.io/",
+    "logo": "https://rhyma24.github.io/assets/logo_simple.png",
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "telephone": "+46-735-944-654",
+      "contactType": "sales",
+      "areaServed": "SE",
+      "availableLanguage": ["sv", "en"]
+    }]
+  }
+  </script>
 </head>
+
 <body>
-  <!-- Header / Nav -->
+  <!-- =========================================
+       HEADER / NAV
+  ========================================== -->
   <header>
     <div class="container nav">
       <div class="brand">
-        <img class="brand-badge" aria-hidden="true" src="assets/logo_simple.png">
+        <img class="brand-badge" src="assets/logo_simple.png" alt="PureVia Sweden" aria-hidden="true" />
         <strong>PureVia Sweden</strong>
       </div>
+
       <nav class="nav-links" aria-label="Primär navigation">
         <a href="#produkter">Produkter</a>
         <a href="#teknologi">Teknologi &amp; säkerhet</a>
@@ -43,61 +75,75 @@
         <a href="#om">Om oss</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
-      <button class="btn btn-primary cta" data-scroll="#kontakt" aria-label="Boka genomgång">Boka genomgång
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+      <button class="btn btn-primary cta" data-scroll="#kontakt" aria-label="Boka genomgång">
+        Boka genomgång
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
       </button>
     </div>
   </header>
 
-<!-- Hero -->
-<section id="hero" class="hero-edge">
-  <div class="hero-edge-panel">
-    <div class="hero-media">
-      <img src="assets/logo_dark.png" alt="PureVia Sweden">
+  <!-- =========================================
+       HERO (Spline background + copy)
+  ========================================== -->
+  <section class="pv-hero pv-hero--top" id="home">
+    <!-- Background layer -->
+    <div class="spline-bg">
+      <iframe src="https://my.spline.design/flowingribbon-Pb2xLI0cBsKBjNYJkH3R1oFG/" frameborder="0"></iframe>
     </div>
 
-    <!-- Text i SAMMA kort, i nederkant -->
-    <div class="hero-content">
-      <div class="hero-bar">
-        <p class="kicker">Oxidationsdriven luftrening som verkligen bryter ned – inte bara fångar upp.</p>
-        <h1 class="hero-title">Luftrening som eliminerar – inte döljer.</h1>
-        <p class="hero-sub">Oxidationsdriven luftrening som verkligen tar bort problemen – inte bara döljer dem.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#kontakt">
-            Få en offert
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
+    <!-- Content layer -->
+    <div class="pv-hero-inner">
+      <div
+        class="pv-hero-grid pv-hero-grid--top"
+        style="align-items:flex-start;justify-content:center;min-height:auto;
+               padding-top:calc(var(--header-h,88px) + 80px);padding-bottom:64px;"
+      >
+        <div id="hero-text" class="pv-hero-copy pv-hero-centered">
+          <h1 class="hero-title">
+            <span class="grad">Luftrening</span> som eliminerar<br />
+            <span class="muted">– inte döljer.</span>
+          </h1>
+
+          <p class="lede">
+            Oxidationsdriven luftrening som verkligen tar bort problemen – inte bara fångar upp dem.
+          </p>
+
+          <div class="pv-cta">
+            <a class="btn btn-primary" href="#kontakt">Få en offert</a>
+            <a class="btn btn-ghost" href="#produkter">Utforska produkter</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-
-
-
-  <!-- Produkter -->
+  <!-- =========================================
+       PRODUKTER
+  ========================================== -->
   <section id="produkter" style="background:var(--base-2)">
     <div class="container">
       <h2 class="section-title fade">Produkter</h2>
+
       <div class="grid-3">
         <article class="card fade">
-          <img src="assets/standalone.png" class="thumb">
-          <h3>LH‑UL Stand‑Alone</h3>
+          <img src="assets/standalone.png" class="thumb" alt="LH-UL Stand-Alone" />
+          <h3>LH-UL Stand-Alone</h3>
           <p class="muted">Fristående enheter som inte bara renar luften – utan eliminerar lukt, fett och mikrober.</p>
           <p><a href="#kontakt" class="muted" style="font-weight:700">Läs mer &amp; offert →</a></p>
         </article>
+
         <article class="card fade">
-          <img src="assets/compact1020.png" class="thumb">
+          <img src="assets/compact1020.png" class="thumb" alt="Compact 10/20" />
           <h3>Compact 10/20</h3>
           <p class="muted">Väggmonterad lösning som bryter ner fett, lukt och biofilm i storkök och ventilation.</p>
           <p><a href="#kontakt" class="muted" style="font-weight:700">Läs mer &amp; offert →</a></p>
         </article>
+
         <article class="card fade">
-          <img src="assets/modular.png" class="thumb">
+          <img src="assets/modular.png" class="thumb" alt="Modulära system (ABB/MAG/LKL)" />
           <h3>Modulära system (ABB/MAG/LKL)</h3>
           <p class="muted">Flexibla moduler för integration i ventilation och industri. Sensorstyrd drift för säker och effektiv luftrening.</p>
           <p><a href="#kontakt" class="muted" style="font-weight:700">Läs mer &amp; offert →</a></p>
@@ -106,39 +152,55 @@
     </div>
   </section>
 
-  <!-- Teknologi & säkerhet -->
+  <!-- =========================================
+       TEKNOLOGI & SÄKERHET
+  ========================================== -->
   <section id="teknologi">
     <div class="container">
       <h2 class="section-title fade">Teknologi &amp; säkerhet</h2>
+
       <div class="features" style="display:grid; gap:18px">
         <div class="feature fade">
           <div style="display:flex; align-items:center; gap:10px">
             <!-- Gauge icon -->
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12a9 9 0 10-18 0 9 9 0 0018 0zm-9 0l5-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M21 12a9 9 0 10-18 0 9 9 0 0018 0zm-9 0l5-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
             <h3>Styrd oxidation</h3>
           </div>
           <p class="muted">Reaktivt syre bryter ned lukt, fett och mikrober, rest blir O₂.</p>
         </div>
+
         <div class="feature fade">
           <div style="display:flex; align-items:center; gap:10px">
             <!-- Shield icon -->
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 9-8 9s-8-4-8-9V7l8-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 3l8 4v5c0 5-3.5 9-8 9s-8-4-8-9V7l8-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+            </svg>
             <h3>Säker drift</h3>
           </div>
           <p class="muted">Vi prioriterar säkerheten – våra system övervakar nivåer och anpassar sig automatiskt för säker drift.</p>
         </div>
+
         <div class="feature fade">
           <div style="display:flex; align-items:center; gap:10px">
             <!-- Settings icon -->
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z" stroke="currentColor" stroke-width="2"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06A1.65 1.65 0 0015 19.4a1.65 1.65 0 00-1 .6 1.65 1.65 0 00-.33 1.82 2 2 0 01-3.34 0 1.65 1.65 0 00-.33-1.82 1.65 1.65 0 00-1-.6 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.6 15a1.65 1.65 0 00-.6-1 1.65 1.65 0 00-1.82-.33 2 2 0 010-3.34 1.65 1.65 0 001.82-.33 1.65 1.65 0 00.6-1A1.65 1.65 0 004.6 8a1.65 1.65 0 00-.33-1.82l-.06-.06A2 2 0 017.04 3.3l.06.06A1.65 1.65 0 009 4.6c.36 0 .71-.13 1-.36.29-.23.49-.56.6-.92a2 2 0 013.34 0c.1.36.31.69.6.92.29.23.64.36 1 .36.63 0 1.23-.25 1.68-.7l.06-.06a2 2 0 012.83 2.83l-.06.06c-.45.45-.7 1.05-.7 1.68 0 .36.13.71.36 1 .23.29.56.49.92.6.36.1.69.31.92.6.23.29.36.64.36 1z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" stroke="currentColor" stroke-width="2" />
+              <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06A1.65 1.65 0 0015 19.4a1.65 1.65 0 00-1 .6 1.65 1.65 0 00-.33 1.82 2 2 0 01-3.34 0 1.65 1.65 0 00-.33-1.82 1.65 1.65 0 00-1-.6 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.6 15a1.65 1.65 0 00-.6-1 1.65 1.65 0 00-1.82-.33 2 2 0 010-3.34 1.65 1.65 0 001.82-.33 1.65 1.65 0 00.6-1A1.65 1.65 0 004.6 8a1.65 1.65 0 00-.33-1.82l-.06-.06A2 2 0 017.04 3.3l.06.06A1.65 1.65 0 009 4.6c.36 0 .71-.13 1-.36.29-.23.49-.56.6-.92a2 2 0 013.34 0c.1.36.31.69.6.92.29.23.64.36 1 .36.63 0 1.23-.25 1.68-.7l.06-.06a2 2 0 012.83 2.83l-.06.06c-.45.45-.7 1.05-.7 1.68 0 .36.13.71.36 1 .23.29.56.49.92.6.36.1.69.31.92.6.23.29.36.64.36 1z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
             <h3>Smart styrning</h3>
           </div>
           <p class="muted">Stöd för sensorer, automatisk avstängning vid stillastående luft.</p>
         </div>
+
         <div class="feature fade">
           <div style="display:flex; align-items:center; gap:10px">
             <!-- Book/Check icon -->
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4h12a2 2 0 012 2v14l-3-2-3 2-3-2-3 2V6a2 2 0 012-2z" stroke="currentColor" stroke-width="2"/><path d="M9 10l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="2" />
+              <path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2" />
+            </svg>
             <h3>Certifierad och testad</h3>
           </div>
           <p class="muted">CE-märkta produkter med dokumenterad effekt.</p>
@@ -147,312 +209,316 @@
     </div>
   </section>
 
-<!-- Användningsområden -->
-<section id="anvandning" style="background:var(--base-2)">
-  <div class="container">
-    <h2 class="section-title fade">Användningsområden</h2>
+  <!-- =========================================
+       ANVÄNDNINGSOMRÅDEN
+  ========================================== -->
+  <section id="anvandning" style="background:var(--base-2)">
+    <div class="container">
+      <h2 class="section-title fade">Användningsområden</h2>
 
-    <div class="use-grid">
-      <a class="use-card fade" href="#kontakt" aria-label="Industri & produktion – kontakta oss">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18v12a2 2 0 01-2 2H5a2 2 0 01-2-2V6z" stroke="currentColor" stroke-width="2"/><path d="M3 10h18" stroke="currentColor" stroke-width="2"/></svg>
-        <h3>Industri & produktion</h3>
-        <p>Eliminerar lukt och aerosoler i processmiljöer.</p>
-      </a>
+      <div class="use-grid">
+        <a class="use-card fade" href="#kontakt" aria-label="Industri & produktion – kontakta oss">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18v12a2 2 0 01-2 2H5a2 2 0 01-2-2V6z" stroke="currentColor" stroke-width="2"/><path d="M3 10h18" stroke="currentColor" stroke-width="2"/></svg>
+          <h3>Industri & produktion</h3>
+          <p>Eliminerar lukt och aerosoler i processmiljöer.</p>
+        </a>
 
-      <a class="use-card fade" href="#kontakt" aria-label="Skolor & kontor – kontakta oss">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7h18v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7z" stroke="currentColor" stroke-width="2"/><path d="M7 7V5a2 2 0 012-2h6a2 2 0 012 2v2" stroke="currentColor" stroke-width="2"/></svg>
-        <h3>Skolor & kontor</h3>
-        <p>Renare luft för bättre arbetsmiljö och fokus.</p>
-      </a>
+        <a class="use-card fade" href="#kontakt" aria-label="Skolor & kontor – kontakta oss">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7h18v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7z" stroke="currentColor" stroke-width="2"/><path d="M7 7V5a2 2 0 012-2h6a2 2 0 012 2v2" stroke="currentColor" stroke-width="2"/></svg>
+          <h3>Skolor & kontor</h3>
+          <p>Renare luft för bättre arbetsmiljö och fokus.</p>
+        </a>
 
-      <a class="use-card fade" href="#kontakt" aria-label="Restaurang & storkök – kontakta oss">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 3v10a3 3 0 106 0V3M18 3v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        <h3>Restaurang & storkök</h3>
-        <p>Bryter ner fett, lukt och biofilm i ventilation.</p>
-      </a>
+        <a class="use-card fade" href="#kontakt" aria-label="Restaurang & storkök – kontakta oss">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 3v10a3 3 0 106 0V3M18 3v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <h3>Restaurang & storkök</h3>
+          <p>Bryter ner fett, lukt och biofilm i ventilation.</p>
+        </a>
 
-      <a class="use-card fade" href="#kontakt" aria-label="Lager & logistik – kontakta oss">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 9l9-6 9 6v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" stroke="currentColor" stroke-width="2"/><path d="M9 22V12h6v10" stroke="currentColor" stroke-width="2"/></svg>
-        <h3>Lager & logistik</h3>
-        <p>Minskar lukt och partiklar i stora volymer.</p>
-      </a>
+        <a class="use-card fade" href="#kontakt" aria-label="Lager & logistik – kontakta oss">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 9l9-6 9 6v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" stroke="currentColor" stroke-width="2"/><path d="M9 22V12h6v10" stroke="currentColor" stroke-width="2"/></svg>
+          <h3>Lager & logistik</h3>
+          <p>Minskar lukt och partiklar i stora volymer.</p>
+        </a>
 
-      <a class="use-card fade" href="#kontakt" aria-label="Garage & källare – kontakta oss">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 10l9-6 9 6v8a2 2 0 01-2 2H5a2 2 0 01-2-2v-8z" stroke="currentColor" stroke-width="2"/><path d="M7 20v-6h10v6" stroke="currentColor" stroke-width="2"/></svg>
-        <h3>Garage & källare</h3>
-        <p>Motverkar instängd lukt och fuktproblematik.</p>
-      </a>
+        <a class="use-card fade" href="#kontakt" aria-label="Garage & källare – kontakta oss">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 10l9-6 9 6v8a2 2 0 01-2 2H5a2 2 0 01-2-2v-8z" stroke="currentColor" stroke-width="2"/><path d="M7 20v-6h10v6" stroke="currentColor" stroke-width="2"/></svg>
+          <h3>Garage & källare</h3>
+          <p>Motverkar instängd lukt och fuktproblematik.</p>
+        </a>
 
-      <a class="use-card fade" href="#kontakt" aria-label="Gym & wellness – kontakta oss">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 8h12M4 12h16M6 16h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        <h3>Gym & wellness</h3>
-        <p>Fräschare luft vid hög belastning och aktivitet.</p>
-      </a>
+        <a class="use-card fade" href="#kontakt" aria-label="Gym & wellness – kontakta oss">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 8h12M4 12h16M6 16h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <h3>Gym & wellness</h3>
+          <p>Fräschare luft vid hög belastning och aktivitet.</p>
+        </a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-  <!-- Varför PureVia -->
+  <!-- =========================================
+       VARFÖR PUREVIA
+  ========================================== -->
   <section id="om">
     <div class="container">
       <h2 class="section-title fade">Varför PureVia</h2>
+
       <div class="why-grid">
-  <div class="why-card fade">
-    <div class="why-icon">
-      <!-- check/badge -->
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6l-11 11L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
-    <h3>Bevisad effekt</h3>
-    <p>CE-märkt och testdata från verkliga miljöer. Dokumenterad nedbrytning – inte bara filtrering.</p>
-  </div>
+        <div class="why-card fade">
+          <div class="why-icon">
+            <!-- check/badge -->
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6l-11 11L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Bevisad effekt</h3>
+          <p>CE-märkt och testdata från verkliga miljöer. Dokumenterad nedbrytning – inte bara filtrering.</p>
+        </div>
 
-  <div class="why-card fade">
-    <div class="why-icon">
-      <!-- flex/gear -->
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/><path d="M19.4 15a2 2 0 010 4l-1.2.7a2 2 0 01-2.1-.2l-.6-.4a8 8 0 01-2 .8l-.2.7a2 2 0 01-2 1.4H10a2 2 0 01-2-1.4l-.2-.7a8 8 0 01-2-.8l-.6.4a2 2 0 01-2.1.2L1.9 19a2 2 0 010-4l.7-1.2a8 8 0 01-.3-2 8 8 0 01.3-2L1.9 8a2 2 0 010-4l1.2-.7a2 2 0 012.1.2l.6.4a8 8 0 012-.8l.2-.7A2 2 0 0110 1h1a2 2 0 012 1.4l.2.7a8 8 0 012 .8l.6-.4a2 2 0 012.1-.2L20.1 4a2 2 0 010 4l-.7 1.2c.2.7.3 1.3.3 2s-.1 1.3-.3 2l.7 1.8z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-    </div>
-    <h3>Flexibel lösning</h3>
-    <p>Stand-alone eller integrerat i ventilation. Sensorstyrning för rätt nivå i varje miljö.</p>
-  </div>
+        <div class="why-card fade">
+          <div class="why-icon">
+            <!-- flex/gear -->
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/><path d="M19.4 15a2 2 0 010 4l-1.2.7a2 2 0 01-2.1-.2l-.6-.4a8 8 0 01-2 .8l-.2.7a2 2 0 01-2 1.4H10a2 2 0 01-2-1.4l-.2-.7a8 8 0 01-2-.8l-.6.4a2 2 0 01-2.1.2L1.9 19a2 2 0 010-4l.7-1.2a8 8 0 01-.3-2 8 8 0 01.3-2L1.9 8a2 2 0 010-4l1.2-.7a2 2 0 012.1.2l.6.4a8 8 0 012-.8l.2-.7A2 2 0 0110 1h1a2 2 0 012 1.4l.2.7a8 8 0 012 .8l.6-.4a2 2 0 012.1-.2L20.1 4a2 2 0 010 4l-.7 1.2c.2.7.3 1.3.3 2s-.1 1.3-.3 2l.7 1.8z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Flexibel lösning</h3>
+          <p>Stand-alone eller integrerat i ventilation. Sensorstyrning för rätt nivå i varje miljö.</p>
+        </div>
 
-  <div class="why-card fade">
-    <div class="why-icon">
-      <!-- handshake -->
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 8l-6 6a4 4 0 01-6 0l-2-2M3 12l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
-    <h3>Rätt partner</h3>
-    <p>Leverans och installation via certifierade installatörer – tryggt från offert till drift.</p>
-  </div>
+        <div class="why-card fade">
+          <div class="why-icon">
+            <!-- handshake -->
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 8l-6 6a4 4 0 01-6 0l-2-2M3 12l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Rätt partner</h3>
+          <p>Leverans och installation via certifierade installatörer – tryggt från offert till drift.</p>
+        </div>
 
-  <div class="why-card fade">
-    <div class="why-icon">
-      <!-- chart/arrow -->
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20V4M3 20h18M7 16l3-3 3 2 4-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="why-card fade">
+          <div class="why-icon">
+            <!-- chart/arrow -->
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20V4M3 20h18M7 16l3-3 3 2 4-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Ekonomi & drift</h3>
+          <p>Mindre fett och lukt i kanaler ger lägre rengöringsbehov, bättre arbetsmiljö och stabil drift.</p>
+        </div>
+      </div>
     </div>
-    <h3>Ekonomi & drift</h3>
-    <p>Mindre fett och lukt i kanaler ger lägre rengöringsbehov, bättre arbetsmiljö och stabil drift.</p>
-  </div>
-</div>
   </section>
 
-  <!-- Kontakt -->
-<section id="kontakt" style="background:var(--base-2)">
-  <div class="container">
-    <h2 class="section-title fade">Kontakt</h2>
+  <!-- =========================================
+       KONTAKT
+  ========================================== -->
+  <section id="kontakt" style="background:var(--base-2)">
+    <div class="container">
+      <h2 class="section-title fade">Kontakt</h2>
 
-    <!-- EN kolumn: bara direktkontakt-kortet -->
-    <div class="contact-single">
-      <aside class="contact-card fade" aria-label="Kontaktuppgifter">
-        <h3>Direktkontakt</h3>
+      <!-- EN kolumn: bara direktkontakt-kortet -->
+      <div class="contact-single">
+        <aside class="contact-card fade" aria-label="Kontaktuppgifter">
+          <h3>Direktkontakt</h3>
 
-        <div class="contact-item">
-          <div class="contact-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92v2a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3.11 4.18 2 2 0 0 1 5.1 2h2a2 2 0 0 1 2 1.72c.12.9.3 1.77.54 2.6a2 2 0 0 1-.45 2L8 9a16 16 0 0 0 7 7l.68-1.19a2 2 0 0 1 2-.9c.83.24 1.7.42 2.6.54A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2"/></svg>
+          <div class="contact-item">
+            <div class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92v2a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3.11 4.18 2 2 0 0 1 5.1 2h2a2 2 0 0 1 2 1.72c.12.9.3 1.77.54 2.6a2 2 0 0 1-.45 2L8 9a16 16 0 0 0 7 7l.68-1.19a2 2 0 0 1 2-.9c.83.24 1.7.42 2.6.54A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <div class="contact-text">
+              <div class="label">Telefon</div>
+              <a href="tel:+46735944654" class="value">073-594 46 54</a>
+            </div>
+            <button class="copy-btn" data-copy="+46735944654" aria-label="Kopiera telefonnummer">Kopiera</button>
           </div>
-          <div class="contact-text">
-            <div class="label">Telefon</div>
-            <a href="tel:+46735944654" class="value">073-594 46 54</a>
-          </div>
-          <button class="copy-btn" data-copy="+46735944654" aria-label="Kopiera telefonnummer">Kopiera</button>
-        </div>
 
-        <div class="contact-item">
-          <div class="contact-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="2"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2"/></svg>
+          <div class="contact-item">
+            <div class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="2"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <div class="contact-text">
+              <div class="label">E-post</div>
+              <a href="mailto:pureviasweden@outlook.com" class="value">pureviasweden@outlook.com</a>
+            </div>
+            <button class="copy-btn" data-copy="pureviasweden@outlook.com" aria-label="Kopiera e-post">Kopiera</button>
           </div>
-          <div class="contact-text">
-            <div class="label">E-post</div>
-            <a href="mailto:pureviasweden@outlook.com" class="value">pureviasweden@outlook.com</a>
-          </div>
-          <button class="copy-btn" data-copy="pureviasweden@outlook.com" aria-label="Kopiera e-post">Kopiera</button>
-        </div>
 
-        <div class="contact-item">
-          <div class="contact-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-5.33-7-11a7 7 0 1 1 14 0c0 5.67-7 11-7 11z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/></svg>
+          <div class="contact-item">
+            <div class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-5.33-7-11a7 7 0 1 1 14 0c0 5.67-7 11-7 11z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <div class="contact-text">
+              <div class="label">Plats</div>
+              <div class="value">Helsingborg</div>
+            </div>
           </div>
-          <div class="contact-text">
-            <div class="label">Plats</div>
-            <div class="value">Helsingborg</div>
-          </div>
-        </div>
-      </aside>
+        </aside>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-  <!-- Footer -->
+  <!-- =========================================
+       FOOTER
+  ========================================== -->
   <footer>
-  <div class="container foot">
-    <div>
-      <strong>PureVia Sweden</strong><br />
-      <span>org.nr 990924-7976 · Helsingborg</span>
+    <div class="container foot">
+      <div>
+        <strong>PureVia Sweden</strong><br />
+        <span>org.nr 990924-7976 · Helsingborg</span>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
+  <!-- =========================================
+       SCRIPTS
+       (All logic kept; just labeled. We can consolidate later.)
+  ========================================== -->
 
+  <!-- Smooth scroll for buttons using [data-scroll] -->
   <script>
-    // Smooth scroll for buttons that have data-scroll
-    document.addEventListener('click', (e)=>{
+    document.addEventListener('click', (e) => {
       const target = e.target.closest('[data-scroll]');
-      if(!target) return;
+      if (!target) return;
       const sel = target.getAttribute('data-scroll');
       const el = document.querySelector(sel);
-      if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
+      if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
     });
+  </script>
 
-    // IntersectionObserver for fade-in
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('show'); io.unobserve(en.target);} });
-    },{threshold:.12});
-    document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+  <!-- IntersectionObserver for .fade elements -->
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (en.isIntersecting) { en.target.classList.add('show'); io.unobserve(en.target); }
+      });
+    }, { threshold: .12 });
+    document.querySelectorAll('.fade').forEach(el => io.observe(el));
+  </script>
 
-    // Basic mock submit (replace with Formspree/Netlify later)
+  <!-- Mock form submit alert (no form yet) -->
+  <script>
     const form = document.querySelector('form');
-    form?.addEventListener('submit', ()=>{
+    form?.addEventListener('submit', () => {
       alert('Tack! Ditt meddelande har skickats (demo).');
     });
   </script>
-    <!-- Scroll to top knapp -->
+
+  <!-- Scroll-to-top button -->
   <button id="toTop" aria-label="Till toppen">↑</button>
-
   <script>
-    // din befintliga JS här ...
-
-    // Scroll-to-top kod
     const toTop = document.getElementById("toTop");
     window.addEventListener("scroll", () => {
-      if(window.scrollY > 300){ toTop.classList.add("show"); }
+      if (window.scrollY > 300) { toTop.classList.add("show"); }
       else { toTop.classList.remove("show"); }
     });
-    toTop.addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
-    // Markera aktiv sektion i menyn vid scroll
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll(".nav-links a");
+    toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+  </script>
 
-window.addEventListener("scroll", () => {
-  let current = "";
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 80; // lite offset för header
-    if (pageYOffset >= sectionTop) {
-      current = section.getAttribute("id");
+  <!-- Active nav link on scroll -->
+  <script>
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".nav-links a");
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 80; // offset vs header
+        if (pageYOffset >= sectionTop) { current = section.getAttribute("id"); }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove("is-active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("is-active");
+        }
+      });
+    });
+    window.addEventListener("scroll", () => {
+      document.querySelector("header").classList.toggle("scrolled", window.scrollY > 8);
+    });
+  </script>
+
+
+  <!-- Premium hero: in-view + micro-parallax (not used by current markup but kept) -->
+  <script>
+    (function () {
+      const hero = document.querySelector('.hero-edge');
+      const img = document.querySelector('.hero-edge .hero-media img');
+      if (hero) {
+        const io = new IntersectionObserver(([e]) => {
+          if (e.isIntersecting) { hero.classList.add('is-inview'); io.unobserve(hero); }
+        }, { threshold: .35 });
+        io.observe(hero);
+      }
+      function onScroll() {
+        if (!img) return;
+        const panel = img.closest('.hero-edge-panel');
+        if (!panel) return;
+        const rect = panel.getBoundingClientRect();
+        const mid = rect.top + rect.height / 2;
+        const delta = (window.innerHeight / 2 - mid) / 20;
+        img.style.setProperty('--pary', `${delta.toFixed(2)}px`);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+      const m = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (m.matches && img) { img.style.setProperty('--pary', '0px'); }
+    })();
+  </script>
+
+  <!-- Header shadow on scroll (duplicate behavior kept) -->
+  <script>
+    window.addEventListener("scroll", () => {
+      const header = document.querySelector("header");
+      if (window.scrollY > 10) header.classList.add("scrolled");
+      else header.classList.remove("scrolled");
+    });
+  </script>
+
+  <!-- IntersectionObserver for multiple fade-* classes (kept, separate) -->
+  <script>
+    (() => {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) return;
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(en => {
+          if (en.isIntersecting) {
+            en.target.classList.add('show');
+            obs.unobserve(en.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
+      document.querySelectorAll('.fade-in, .fade-up, .fade-down, .fade-left, .fade-right, .fade-zoom')
+        .forEach(el => io.observe(el));
+    })();
+  </script>
+  <script>
+  // Wrappar texten i en <span class="copy-label"> om den inte redan finns
+  document.querySelectorAll('#kontakt .copy-btn').forEach(btn => {
+    if (!btn.querySelector('.copy-label')) {
+      const t = (btn.textContent || 'Kopiera').trim();
+      btn.textContent = '';
+      const span = document.createElement('span');
+      span.className = 'copy-label';
+      span.textContent = t;
+      btn.appendChild(span);
     }
-  });
-  navLinks.forEach(link => {
-    link.classList.remove("is-active");
-    if (link.getAttribute("href") === "#" + current) {
-      link.classList.add("is-active");
-    }
-  });
-});
-window.addEventListener("scroll", ()=> {
-  document.querySelector("header").classList.toggle("scrolled", window.scrollY>8);
-});
-  // Kopiera till urklipp + feedback
-  document.querySelectorAll('.copy-btn').forEach(btn=>{
-    btn.addEventListener('click', async ()=>{
-      const text = btn.getAttribute('data-copy');
-      try{
+
+    btn.addEventListener('click', async () => {
+      const text = btn.getAttribute('data-copy')?.trim();
+      if (!text) return;
+
+      // Försök med Clipboard API, fallback annars
+      try {
         await navigator.clipboard.writeText(text);
-        const original = btn.textContent;
-        btn.textContent = 'Kopierat!';
-        btn.classList.add('copied');
-        setTimeout(()=>{ btn.textContent = original; btn.classList.remove('copied'); }, 1400);
-      }catch(e){
-        // Fallback: välj texten om clipboard inte tillåts
-        alert('Kunde inte kopiera, prova markera och kopiera manuellt: ' + text);
+      } catch (err) {
+        const ta = document.createElement('textarea');
+        ta.value = text; document.body.appendChild(ta);
+        ta.select(); document.execCommand('copy');
+        document.body.removeChild(ta);
       }
-    });
-  });
 
-  // ---- Premium hero: in-view + mikro-parallax ----
-  (function(){
-    const hero = document.querySelector('.hero-edge');
-    const img  = document.querySelector('.hero-edge .hero-media img');
-
-    // Fade-in när hero syns
-    if(hero){
-      const io = new IntersectionObserver(([e])=>{
-        if(e.isIntersecting){ hero.classList.add('is-inview'); io.unobserve(hero); }
-      }, { threshold: .35 });
-      io.observe(hero);
-    }
-
-    // Mikro-parallax på loggan (väldigt subtilt)
-    function onScroll(){
-      if(!img) return;
-      const panel = img.closest('.hero-edge-panel');
-      if(!panel) return;
-      const rect = panel.getBoundingClientRect();
-      const mid  = rect.top + rect.height/2;
-      // delta i px: hur långt panelens mitt ligger från viewportens mitt
-      const delta = (window.innerHeight/2 - mid) / 20; // små rörelser
-      img.style.setProperty('--pary', `${delta.toFixed(2)}px`);
-    }
-    window.addEventListener('scroll', onScroll, {passive:true});
-    onScroll();
-
-    // Om användaren föredrar reducerad rörelse
-    const m = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if(m.matches && img){ img.style.setProperty('--pary', '0px'); }
-  })();
-  // === Header shadow on scroll ===
-window.addEventListener("scroll", ()=>{
-  const header = document.querySelector("header");
-  if(window.scrollY > 10) header.classList.add("scrolled");
-  else header.classList.remove("scrolled");
-});
-// ===== Kopiera-knappar i kontaktsektionen =====
-document.querySelectorAll('.copy-btn').forEach(btn => {
-  btn.addEventListener('click', async () => {
-    const text = btn.getAttribute('data-copy')?.trim() || '';
-    if(!text) return;
-
-    try {
-      await navigator.clipboard.writeText(text);
-      // Visuell feedback
-      const original = btn.textContent;
-      btn.textContent = 'Kopierat!';
+      // Animera till checkmark
       btn.classList.add('copied');
+
+      // Återställ efter 1.2s
       setTimeout(() => {
-        btn.textContent = original;
         btn.classList.remove('copied');
-      }, 1500);
-    } catch (e) {
-      // Fallback om clipboard inte tillåts
-      const ok = window.prompt('Kopiera manuellt:', text);
-      if (ok !== null) {
-        const original = btn.textContent;
-        btn.textContent = 'Kopierat!';
-        btn.classList.add('copied');
-        setTimeout(() => {
-          btn.textContent = original;
-          btn.classList.remove('copied');
-        }, 1500);
-      }
-    }
-  });
-});
-// ===== IntersectionObserver för scroll-fades =====
-(() => {
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduced) return; // visa utan animationer
-
-  const io = new IntersectionObserver((entries, obs) => {
-    entries.forEach(en => {
-      if (en.isIntersecting) {
-        en.target.classList.add('show');
-        obs.unobserve(en.target);
-      }
+      }, 1200);
     });
-  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
-
-  document.querySelectorAll('.fade-in, .fade-up, .fade-down, .fade-left, .fade-right, .fade-zoom')
-    .forEach(el => io.observe(el));
-})();
-
+  });
 </script>
 </body>
 </html>
