@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>PureVia Sweden – Luftreningssystem för industri, kontor och storkök</title>
   <meta name="description" content="Stand-alone och integrerade system som kombinerar filtrering, jonisering och styrd oxidationsprocess." />
+  <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#f1f9dc" />
   <link rel="canonical" href="https://pureviasweden.com/" />
 
@@ -17,9 +18,14 @@
   <meta property="og:description" content="Stand-alone och integrerade system som kombinerar filtrering, jonisering och styrd oxidationsprocess.">
   <meta property="og:url" content="https://pureviasweden.com/">
   <meta property="og:site_name" content="PureVia Sweden">
+  <meta property="og:locale" content="sv_SE">
   <!-- Byt bilden till din faktiska OG-bild när du har den -->
   <meta property="og:image" content="https://pureviasweden.com/assets/og-hero.jpg">
+  <meta property="og:image:alt" content="PureVia Sweden – avancerad luftrening för industri, kontor och storkök">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PureVia Sweden – Luftreningssystem">
+  <meta name="twitter:description" content="Stand-alone och integrerade system som kombinerar filtrering, jonisering och styrd oxidationsprocess.">
+  <meta name="twitter:image" content="https://pureviasweden.com/assets/og-hero.jpg">
 
   <!-- ================================
        FONTS & ICONS
@@ -27,8 +33,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" sizes="any">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
 
   <!-- Small perf win for the hero embed -->
   <link rel="preconnect" href="https://my.spline.design" crossorigin>
@@ -57,9 +64,27 @@
   }]
 }
 </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "PureVia Sweden",
+    "url": "https://pureviasweden.com/",
+    "inLanguage": "sv-SE",
+    "publisher": {
+      "@type": "Organization",
+      "name": "PureVia Sweden",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://pureviasweden.com/assets/logo_simple.png"
+      }
+    }
+  }
+  </script>
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Hoppa till innehåll</a>
   <!-- =========================================
        HEADER / NAV
   ========================================== -->
@@ -84,25 +109,48 @@
           <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </button>
+
+      <!-- Mobile hamburger -->
+      <button class="hamburger" id="hamburger" aria-label="Öppna meny" aria-controls="mobileNav" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
     </div>
   </header>
+
+  <!-- Mobile full-screen menu -->
+  <div id="mobileNav" class="mobile-nav" hidden aria-hidden="true">
+    <div class="mnav-backdrop" data-close-menu></div>
+    <div class="mnav-panel" role="dialog" aria-modal="true" aria-labelledby="mnav-title">
+      <div class="mnav-header">
+        <strong id="mnav-title">Meny</strong>
+      </div>
+      <nav class="mnav-links" aria-label="Mobil navigation">
+        <a class="mnav-link" href="#produkter">Produkter</a>
+        <a class="mnav-link" href="#teknologi">Teknologi &amp; säkerhet</a>
+        <a class="mnav-link" href="#anvandning">Användningsområden</a>
+        <a class="mnav-link" href="#kontakt">Kontakt</a>
+        <a class="mnav-link" href="#faq">FAQ</a>
+        <a class="mnav-link" href="#om">Om oss</a>
+        <a class="btn btn-primary mnav-cta" href="#kontakt">Boka genomgång</a>
+      </nav>
+    </div>
+  </div>
 
   <!-- =========================================
        HERO (Spline background + copy)
   ========================================== -->
+  <main id="main" tabindex="-1">
   <section class="pv-hero pv-hero--top" id="home">
     <!-- Background layer -->
     <div class="spline-bg">
-      <iframe src="https://my.spline.design/flowingribbon-Pb2xLI0cBsKBjNYJkH3R1oFG/" frameborder="0"></iframe>
+      <iframe src="https://my.spline.design/flowingribbon-Pb2xLI0cBsKBjNYJkH3R1oFG/" frameborder="0" title="Dekorativ 3D-bakgrund" aria-hidden="true"></iframe>
     </div>
 
     <!-- Content layer -->
     <div class="pv-hero-inner">
-      <div
-        class="pv-hero-grid pv-hero-grid--top"
-        style="align-items:flex-start;justify-content:center;min-height:auto;
-               padding-top:calc(var(--header-h,88px) + 80px);padding-bottom:64px;"
-      >
+      <div class="pv-hero-grid pv-hero-grid--top">
         <div id="hero-text" class="pv-hero-copy pv-hero-centered">
           <h1 class="hero-title">
             <span class="grad">Luftrening</span> som eliminerar<br />
@@ -129,23 +177,23 @@
     <div class="container">
       <h2 class="section-title fade">Produkter</h2>
 
-      <div class="grid-3">
+      <div class="grid-3" id="prod-carousel">
         <article class="card fade">
-          <img src="assets/standalone.png" class="thumb" alt="LH-UL Stand-Alone" />
+          <img src="assets/standalone.png" class="thumb" alt="LH-UL Stand-Alone" loading="lazy" decoding="async" />
           <h3>LH-UL Stand-Alone</h3>
           <p class="muted">Fristående enheter som inte bara renar luften – utan eliminerar lukt, fett och mikrober.</p>
           <p><a href="#kontakt" class="muted" style="font-weight:700">Läs mer &amp; offert →</a></p>
         </article>
 
         <article class="card fade">
-          <img src="assets/compact1020.png" class="thumb" alt="Compact 10/20" />
+          <img src="assets/compact1020.png" class="thumb" alt="Compact 10/20" loading="lazy" decoding="async" />
           <h3>Compact 10/20</h3>
           <p class="muted">Väggmonterad lösning som bryter ner fett, lukt och biofilm i storkök och ventilation.</p>
           <p><a href="#kontakt" class="muted" style="font-weight:700">Läs mer &amp; offert →</a></p>
         </article>
 
         <article class="card fade">
-          <img src="assets/modular.png" class="thumb" alt="Modulära system (ABB/MAG/LKL)" />
+          <img src="assets/modular.png" class="thumb" alt="Modulära system (ABB/MAG/LKL)" loading="lazy" decoding="async" />
           <h3>Modulära system (ABB/MAG/LKL)</h3>
           <p class="muted">Flexibla moduler för integration i ventilation och industri. Sensorstyrd drift för säker och effektiv luftrening.</p>
           <p><a href="#kontakt" class="muted" style="font-weight:700">Läs mer &amp; offert →</a></p>
@@ -306,6 +354,33 @@
   </section>
 
   <!-- =========================================
+       FAQ
+  ========================================== -->
+  <section id="faq" style="background:var(--base-2)">
+    <div class="container">
+      <h2 class="section-title fade">Vanliga frågor</h2>
+      <div class="faq">
+        <details class="faq-item fade">
+          <summary>Hur skiljer sig er lösning från traditionell filtrering?</summary>
+          <p>Våra system använder styrd oxidation i kombination med filtrering. Istället för att enbart fånga partiklar bryter vi aktivt ner lukt, fett och mikroorganismer – restprodukten är syre (O₂).</p>
+        </details>
+        <details class="faq-item fade">
+          <summary>Är tekniken säker för personal och gäster?</summary>
+          <p>Ja. Systemen är sensorstyrda och anpassar nivåerna automatiskt för säker drift. Produkterna är CE‑märkta och testade i verkliga miljöer.</p>
+        </details>
+        <details class="faq-item fade">
+          <summary>Passar produkterna i befintlig ventilation?</summary>
+          <p>Ja. Vi erbjuder stand‑alone‑enheter samt modulära lösningar för integration i befintliga ventilationssystem.</p>
+        </details>
+        <details class="faq-item fade">
+          <summary>Hur kommer jag igång?</summary>
+          <p>Kontakta oss för en kostnadsfri genomgång. Vi rekommenderar rätt lösning och lämnar offert baserat på din miljö.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
        KONTAKT
   ========================================== -->
   <section id="kontakt" style="background:var(--base-2)">
@@ -325,7 +400,7 @@
               <div class="label">Telefon</div>
               <a href="tel:+46735944654" class="value">073-594 46 54</a>
             </div>
-            <button class="copy-btn" data-copy="+46735944654" aria-label="Kopiera telefonnummer">Kopiera</button>
+            <button class="copy-btn" data-copy="+46735944654" aria-label="Kopiera telefonnummer"><span class="copy-label">Kopiera</span></button>
           </div>
 
           <div class="contact-item">
@@ -336,7 +411,7 @@
               <div class="label">E-post</div>
               <a href="mailto:pureviasweden@outlook.com" class="value">pureviasweden@outlook.com</a>
             </div>
-            <button class="copy-btn" data-copy="pureviasweden@outlook.com" aria-label="Kopiera e-post">Kopiera</button>
+            <button class="copy-btn" data-copy="pureviasweden@outlook.com" aria-label="Kopiera e-post"><span class="copy-label">Kopiera</span></button>
           </div>
 
           <div class="contact-item">
@@ -353,6 +428,8 @@
     </div>
   </section>
 
+  </main>
+
   <!-- =========================================
        FOOTER
   ========================================== -->
@@ -365,9 +442,16 @@
     </div>
   </footer>
 
+  <!-- Back to top button -->
+  <button id="toTop" aria-label="Till toppen" title="Till toppen" hidden>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 19V5m0 0l-7 7m7-7l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </button>
+
   <!-- =========================================
        SCRIPTS
-       (All logic kept; just labeled. We can consolidate later.)
+       (All logic kept; improved interactions & UX)
   ========================================== -->
 
   <!-- Smooth scroll for buttons using [data-scroll] -->
@@ -393,134 +477,243 @@
 
   <!-- Mock form submit alert (no form yet) -->
   <script>
-    const form = document.querySelector('form');
-    form?.addEventListener('submit', () => {
-      alert('Tack! Ditt meddelande har skickats (demo).');
-    });
-  </script>
+    // Header scroll state + active section highlighting
+    const headerEl = document.querySelector('header');
+    const navLinks = Array.from(document.querySelectorAll('header .nav-links a'));
+    const mnavLinks = Array.from(document.querySelectorAll('#mobileNav .mnav-links a'));
+    const sectionIds = Array.from(new Set(
+      [...navLinks, ...mnavLinks]
+        .map(a => a.getAttribute('href'))
+        .filter(h => h && h.startsWith('#'))
+    ));
+    const sections = sectionIds.map(id => document.querySelector(id)).filter(Boolean);
 
-  <!-- Scroll-to-top button -->
-  <button id="toTop" aria-label="Till toppen">↑</button>
-  <script>
-    const toTop = document.getElementById("toTop");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) { toTop.classList.add("show"); }
-      else { toTop.classList.remove("show"); }
-    });
-    toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-  </script>
+    const updateHeaderH = () => {
+      const h = headerEl?.offsetHeight || 64;
+      document.documentElement.style.setProperty('--header-h', h + 'px');
+    };
+    const setHeaderState = () => {
+      const scrolled = window.scrollY > 8;
+      headerEl?.classList.toggle('scrolled', scrolled);
+    };
 
-  <!-- Active nav link on scroll -->
-  <script>
-    const sections = document.querySelectorAll("section[id]");
-    const navLinks = document.querySelectorAll(".nav-links a");
-    window.addEventListener("scroll", () => {
-      let current = "";
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 80; // offset vs header
-        if (pageYOffset >= sectionTop) { current = section.getAttribute("id"); }
+    const setActive = (id) => {
+      navLinks.forEach(a => {
+        const match = a.getAttribute('href') === id;
+        a.classList.toggle('is-active', match);
+        if (match) { a.setAttribute('aria-current', 'true'); } else { a.removeAttribute('aria-current'); }
       });
-      navLinks.forEach(link => {
-        link.classList.remove("is-active");
-        if (link.getAttribute("href") === "#" + current) {
-          link.classList.add("is-active");
+      mnavLinks.forEach(a => {
+        const match = a.getAttribute('href') === id;
+        a.classList.toggle('is-active', match);
+        if (match) { a.setAttribute('aria-current', 'true'); } else { a.removeAttribute('aria-current'); }
+      });
+    };
+
+    const activeIO = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = '#' + entry.target.id;
+          setActive(id);
         }
       });
-    });
-    window.addEventListener("scroll", () => {
-      document.querySelector("header").classList.toggle("scrolled", window.scrollY > 8);
-    });
-  </script>
+    }, { threshold: 0.5 });
 
+    sections.forEach(sec => activeIO.observe(sec));
+    updateHeaderH();
+    setHeaderState();
+    window.addEventListener('scroll', setHeaderState, { passive: true });
+    window.addEventListener('resize', updateHeaderH);
 
-  <!-- Premium hero: in-view + micro-parallax (not used by current markup but kept) -->
-  <script>
-    (function () {
-      const hero = document.querySelector('.hero-edge');
-      const img = document.querySelector('.hero-edge .hero-media img');
-      if (hero) {
-        const io = new IntersectionObserver(([e]) => {
-          if (e.isIntersecting) { hero.classList.add('is-inview'); io.unobserve(hero); }
-        }, { threshold: .35 });
-        io.observe(hero);
+    // Copy-to-clipboard interactions
+    document.addEventListener('click', async (e) => {
+      const btn = e.target.closest('.copy-btn');
+      if (!btn) return;
+      const text = btn.getAttribute('data-copy');
+      if (!text) return;
+      try {
+        if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(text);
+        } else {
+          const ta = document.createElement('textarea');
+          ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+          document.body.appendChild(ta); ta.select(); document.execCommand('copy');
+          document.body.removeChild(ta);
+        }
+        btn.classList.add('copied');
+        setTimeout(() => btn.classList.remove('copied'), 1400);
+      } catch {}
+    });
+
+    // Back to top button
+    const toTop = document.getElementById('toTop');
+    const toggleTop = () => {
+      const show = window.scrollY > 600;
+      if (!toTop) return;
+      toTop.hidden = !show;
+      toTop.classList.toggle('show', show);
+    };
+    toggleTop();
+    window.addEventListener('scroll', toggleTop, { passive: true });
+    toTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Mobile menu interactions
+    const burger = document.getElementById('hamburger');
+    const mnav = document.getElementById('mobileNav');
+    const main = document.getElementById('main');
+    let lastFocus = null;
+
+    function openMenu(){
+      if (!mnav || !burger) return;
+      lastFocus = document.activeElement;
+      mnav.hidden = false;
+      mnav.setAttribute('aria-hidden', 'false');
+      burger.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('menu-open');
+      main?.setAttribute('aria-hidden', 'true');
+      requestAnimationFrame(() => mnav.classList.add('open'));
+      // focus first link
+      const first = mnav.querySelector('.mnav-links a');
+      first?.focus();
+    }
+    function closeMenu(){
+      if (!mnav || !burger) return;
+      mnav.classList.remove('open');
+      mnav.setAttribute('aria-hidden', 'true');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
+      main?.removeAttribute('aria-hidden');
+      setTimeout(() => { mnav.hidden = true; }, 200);
+      lastFocus && (lastFocus instanceof HTMLElement) && lastFocus.focus();
+    }
+    burger?.addEventListener('click', () => {
+      const expanded = burger.getAttribute('aria-expanded') === 'true';
+      expanded ? closeMenu() : openMenu();
+    });
+    mnav?.addEventListener('click', (e) => {
+      if (e.target instanceof Element && e.target.closest('[data-close-menu]')) closeMenu();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mnav && !mnav.hidden) closeMenu();
+    });
+    // Close when clicking a link
+    mnavLinks.forEach(a => a.addEventListener('click', () => closeMenu()));
+
+    // Mobile products carousel dots + hint (re-enabled)
+    (function(){
+      const carousel = document.getElementById('prod-carousel');
+      if (!carousel) return;
+      const mq = window.matchMedia('(max-width: 767px)');
+      let dotsWrap = null; let cards = [];
+
+      function build(){
+        if (!mq.matches) { destroy(); return; }
+        cards = Array.from(carousel.children).filter(el => el.matches('.card'));
+        if (!dotsWrap){
+          dotsWrap = document.createElement('div'); dotsWrap.className = 'carousel-dots';
+          carousel.after(dotsWrap);
+        } else { dotsWrap.innerHTML = ''; }
+        cards.forEach((_, i) => {
+          const b = document.createElement('button'); b.type = 'button'; b.className = 'dot'; b.setAttribute('aria-label', `Visa kort ${i+1}`);
+          b.addEventListener('click', () => {
+            const left = cards[i].offsetLeft - 12; // align with scroll-padding-left
+            carousel.scrollTo({ left, behavior: 'smooth' });
+            carousel.classList.add('interacted');
+            update(i);
+          });
+          dotsWrap.appendChild(b);
+        });
+        update(0);
       }
-      function onScroll() {
-        if (!img) return;
-        const panel = img.closest('.hero-edge-panel');
-        if (!panel) return;
-        const rect = panel.getBoundingClientRect();
-        const mid = rect.top + rect.height / 2;
-        const delta = (window.innerHeight / 2 - mid) / 20;
-        img.style.setProperty('--pary', `${delta.toFixed(2)}px`);
+
+      function currentIndex(){
+        const scrollLeft = carousel.scrollLeft;
+        let nearest = 0; let min = Infinity;
+        cards.forEach((c, i) => {
+          const d = Math.abs(c.offsetLeft - scrollLeft);
+          if (d < min){ min = d; nearest = i; }
+        });
+        return nearest;
       }
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
-      const m = window.matchMedia('(prefers-reduced-motion: reduce)');
-      if (m.matches && img) { img.style.setProperty('--pary', '0px'); }
+      function update(idx){
+        if (!dotsWrap) return;
+        const dots = Array.from(dotsWrap.querySelectorAll('.dot'));
+        dots.forEach((d, i) => d.setAttribute('aria-selected', i === idx ? 'true' : 'false'));
+      }
+
+      const onScroll = () => { carousel.classList.add('interacted'); update(currentIndex()); };
+      const onInteract = () => carousel.classList.add('interacted');
+
+      function destroy(){
+        carousel.removeEventListener('scroll', onScroll);
+        carousel.removeEventListener('touchstart', onInteract);
+        carousel.removeEventListener('mousedown', onInteract);
+        if (dotsWrap){ dotsWrap.remove(); dotsWrap = null; }
+      }
+
+      build();
+      carousel.addEventListener('scroll', onScroll, { passive:true });
+      carousel.addEventListener('touchstart', onInteract, { passive:true });
+      carousel.addEventListener('mousedown', onInteract);
+      window.addEventListener('resize', build);
     })();
   </script>
 
-  <!-- Header shadow on scroll (duplicate behavior kept) -->
-  <script>
-    window.addEventListener("scroll", () => {
-      const header = document.querySelector("header");
-      if (window.scrollY > 10) header.classList.add("scrolled");
-      else header.classList.remove("scrolled");
-    });
+  <!-- FAQPage structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Hur skiljer sig er lösning från traditionell filtrering?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Våra system använder styrd oxidation i kombination med filtrering. Istället för att enbart fånga partiklar bryter vi aktivt ner lukt, fett och mikroorganismer – restprodukten är syre (O₂)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Är tekniken säker för personal och gäster?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Systemen är sensorstyrda och anpassar nivåerna automatiskt för säker drift. Produkterna är CE‑märkta och testade i verkliga miljöer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Passar produkterna i befintlig ventilation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Vi erbjuder stand‑alone‑enheter samt modulära lösningar för integration i befintliga ventilationssystem."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hur kommer jag igång?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kontakta oss för en kostnadsfri genomgång. Vi rekommenderar rätt lösning och lämnar offert baserat på din miljö."
+        }
+      }
+    ]
+  }
   </script>
 
-  <!-- IntersectionObserver for multiple fade-* classes (kept, separate) -->
+  <!-- IntersectionObserver for multiple fade-* classes (optional, kept) -->
   <script>
     (() => {
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (prefersReduced) return;
       const io = new IntersectionObserver((entries, obs) => {
         entries.forEach(en => {
-          if (en.isIntersecting) {
-            en.target.classList.add('show');
-            obs.unobserve(en.target);
-          }
+          if (en.isIntersecting) { en.target.classList.add('show'); obs.unobserve(en.target); }
         });
       }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
       document.querySelectorAll('.fade-in, .fade-up, .fade-down, .fade-left, .fade-right, .fade-zoom')
         .forEach(el => io.observe(el));
     })();
   </script>
-  <script>
-  // Wrappar texten i en <span class="copy-label"> om den inte redan finns
-  document.querySelectorAll('#kontakt .copy-btn').forEach(btn => {
-    if (!btn.querySelector('.copy-label')) {
-      const t = (btn.textContent || 'Kopiera').trim();
-      btn.textContent = '';
-      const span = document.createElement('span');
-      span.className = 'copy-label';
-      span.textContent = t;
-      btn.appendChild(span);
-    }
-
-    btn.addEventListener('click', async () => {
-      const text = btn.getAttribute('data-copy')?.trim();
-      if (!text) return;
-
-      // Försök med Clipboard API, fallback annars
-      try {
-        await navigator.clipboard.writeText(text);
-      } catch (err) {
-        const ta = document.createElement('textarea');
-        ta.value = text; document.body.appendChild(ta);
-        ta.select(); document.execCommand('copy');
-        document.body.removeChild(ta);
-      }
-
-      // Animera till checkmark
-      btn.classList.add('copied');
-
-      // Återställ efter 1.2s
-      setTimeout(() => {
-        btn.classList.remove('copied');
-      }, 1200);
-    });
-  });
-</script>
 </body>
 </html>
