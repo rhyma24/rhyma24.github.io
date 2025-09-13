@@ -491,11 +491,9 @@ footer{
 .pv-hero{
   position: relative;
   padding: 0;                        /* kill section's default padding */
-  height: calc(100svh - var(--header-h));
+  height: calc(100vh - var(--header-h));    /* fallback for older browsers */
+  height: calc(100svh - var(--header-h));   /* stable mobile viewport to avoid jitter */
   min-height: 520px;                 /* safety for very small screens */
-}
-@supports (height: 100dvh) {         /* best mobile behavior */
-  .pv-hero{ height: calc(100dvh - var(--header-h)); }
 }
 
 /* Spline stays full-bleed */
