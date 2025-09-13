@@ -491,8 +491,8 @@ footer{
 .pv-hero{
   position: relative;
   padding: 0;                        /* kill section's default padding */
-  height: calc(100vh - var(--header-h));    /* fallback for older browsers */
-  height: calc(100svh - var(--header-h));   /* stable mobile viewport to avoid jitter */
+  height: calc((var(--vh, 1vh) * 100) - var(--header-h)); /* JS-set stable fallback */
+  height: calc(100svh - var(--header-h));                 /* stable mobile viewport to avoid jitter */
   min-height: 520px;                 /* safety for very small screens */
 }
 
