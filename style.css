@@ -978,7 +978,7 @@ body.menu-open{ overflow:hidden; }
     scrollbar-width: none;                  /* Firefox */
     mask-image: linear-gradient(to right, transparent, black 12px, black calc(100% - 12px), transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 12px, black calc(100% - 12px), transparent);
-    touch-action: pan-x;                    /* hint for touch */
+    touch-action: auto;                     /* allow vertical scroll within carousel area */
   }
   #produkter .grid-3::-webkit-scrollbar{ display:none; }
 
